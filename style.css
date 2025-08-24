@@ -1061,6 +1061,34 @@ h4 { font-size: clamp(1.25rem, 2.5vw, 1.5rem); }
   }
 }
 
+.mobile-nav-menu {
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  top: 60px; /* or your header height */
+  left: 0;
+  right: 0;
+  background: var(--color-cream-dark, #f5f2ed); /* Brand background */
+  color: var(--color-charcoal, #1E1E1E);        /* Brand text */
+  padding: 2rem 1.5rem;
+  box-shadow: 0 4px 16px rgba(47, 93, 80, 0.08); /* Slight brand shade */
+  z-index: 200;
+}
+
+/* Show only on mobile */
+@media (max-width: 767px) {
+  .mobile-nav-menu.open {
+    display: flex;
+    animation: slideDown 300ms var(--ease-organic, ease) forwards;
+  }
+  .nav-links {
+    display: none;
+  }
+  .mobile-menu-toggle {
+    display: flex;
+  }
+}
+
 .hamburger-line {
   width: 24px;
   height: 2px;

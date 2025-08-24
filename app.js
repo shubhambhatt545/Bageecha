@@ -292,11 +292,11 @@ function navigateToPage(path, pushState = true) {
     pageToShow = document.getElementById('contact-page');
   } else if (path === '/gallery') {
     // For now, redirect gallery to products
-    navigateToPage('/our-products');
+    pageToShow = document.getElementById('gallery-page');
     return;
   } else if (path === '/blog') {
     // For now, redirect blog to our story
-    navigateToPage('/our-story');
+    pageToShow = document.getElementById('blog-page');
     return;
   } else {
     // Default to home for unknown routes
@@ -330,12 +330,12 @@ function updateNavigation(path) {
       link.classList.add('active');
     }
     // Handle special cases for redirected routes
-    else if (path === '/our-products' && linkPath === '/gallery') {
-      link.classList.add('active');
-    }
-    else if (path === '/our-story' && linkPath === '/blog') {
-      link.classList.add('active');
-    }
+    // else if (path === '/our-products' && linkPath === '/gallery') {
+    //   link.classList.add('active');
+    // }
+    // else if (path === '/our-story' && linkPath === '/blog') {
+    //   link.classList.add('active');
+    // }
   });
 }
 
@@ -1138,18 +1138,17 @@ function closeModal() {
 // Mobile menu functionality
 function initMobileMenu() {
   const menuToggle = document.querySelector('.mobile-menu-toggle');
-  const navLinks = document.querySelector('.nav-links');
-  
-  if (menuToggle && navLinks) {
-    menuToggle.addEventListener('click', () => {
-      const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
-      
-      menuToggle.setAttribute('aria-expanded', !isExpanded);
-      navLinks.classList.toggle('mobile-open');
-      
+  const navLinks = document.querySelector('.mobile-nav-menu');
+  if (!menuToggle && !navLinks) return;
+  const lines = menuToggle.querySelectorAll('.hamburger-line');  
+  menuToggle.addEventListener('click', (e) => {
+    e.stopPropagation();
+    navLinks.classList.toggle('open');
+    const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+    const willExpand = !isExpanded;
+    menuToggle.setAttribute('aria-expanded', willExpand);
       // Animate hamburger lines
-      const lines = menuToggle.querySelectorAll('.hamburger-line');
-      if (!isExpanded) {
+      if (willExpand) {
         lines[0].style.transform = 'rotate(45deg) translateY(6px)';
         lines[1].style.opacity = '0';
         lines[2].style.transform = 'rotate(-45deg) translateY(-6px)';
@@ -1160,7 +1159,20 @@ function initMobileMenu() {
         });
       }
     });
-  }
+
+  document.addEventListener('click', (e) => {
+    if (!navLinks.classList.contains('open')) return;
+
+    if (!navLinks.contains(e.target) && !menuToggle.contains(e.target)) {
+      navLinks.classList.remove('open');
+      menuToggle.setAttribute('aria-expanded', false);
+      lines.forEach(line => {
+        line.style.transform = '';
+        line.style.opacity = '';
+      });
+    }
+  });
+  
 }
 
 // Product card interactions

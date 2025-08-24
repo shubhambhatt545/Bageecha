@@ -1,0 +1,37 @@
+{"indoor-plants": {
+    "name": "Indoor Plants",
+    "description": "Transform your indoor spaces with our beautiful collection of houseplants",
+    "products": [
+      {
+        "name": "Monstera Deliciosa",
+        "description": "Large, glossy leaves with natural splits",
+        "image": "monstera.jpg"
+      },
+      {
+        "name": "Snake Plant",
+        "description": "Low-maintenance air purifier",
+        "image": "snake-plant.jpg"
+      },
+      {
+        "name": "Peace Lily",
+        "description": "Elegant white blooms and glossy foliage",
+        "image": "peace-lily.jpg"
+      },
+      {
+        "name": "Rubber Plant",
+        "description": "Bold burgundy and green leaves",
+        "image": "rubber-plant.jpg"
+      },
+      {
+        "name": "Fiddle Leaf Fig",
+        "description": "Statement plant with large violin-shaped leaves",
+        "image": "fiddle-leaf-fig.jpg"
+      },
+      {
+        "name": "Pothos",
+        "description": "Trailing vine perfect for hanging baskets",
+        "image": "pothos.jpg"
+      }
+    ]
+  }
+}

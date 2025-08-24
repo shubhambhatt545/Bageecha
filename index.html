@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GreenLife Nursery - Growing greener spaces, one plant at a time</title>
+    <meta name="description" content="From balconies to backyards, we help your ideas take root with expert care and curated greens. Professional gardening supplies and expert advice.">
+    <meta property="og:title" content="GreenLife Nursery - Growing greener spaces, one plant at a time">
+    <meta property="og:description" content="Transform your space into a thriving green sanctuary with expert care and premium plants.">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Skip to content for accessibility -->
+    <a href="#main-content" class="sr-only focus:not-sr-only">Skip to main content</a>
+
+    <!-- Social Rail -->
+    <div id="social-rail" class="social-rail" aria-label="Social media links">
+        <a href="#" target="_blank" class="social-icon" aria-label="Visit our Instagram">
+            <span class="social-emoji">📷</span>
+        </a>
+        <a href="#" target="_blank" class="social-icon" aria-label="Visit our Facebook">
+            <span class="social-emoji">📘</span>
+        </a>
+        <a href="#" target="_blank" class="social-icon" aria-label="Visit our YouTube">
+            <span class="social-emoji">📺</span>
+        </a>
+        <a href="#" target="_blank" class="social-icon" aria-label="Visit our Pinterest">
+            <span class="social-emoji">📌</span>
+        </a>
+    </div>
+
+    <!-- Scroll to Top Button -->
+    <button id="scroll-to-top" class="scroll-to-top hidden" aria-label="Scroll to top">
+        <span class="scroll-arrow">↑</span>
+    </button>
+
+    <!-- Header -->
+    <header id="header" class="header" role="banner">
+        <nav class="nav-container" role="navigation" aria-label="Main navigation">
+            <div class="nav-content">
+                <div class="logo">
+                    <a href="/" class="logo-link" aria-label="GreenLife Nursery Home">
+                        <h2 class="logo-text">GreenLife Nursery</h2>
+                    </a>
+                </div>
+                
+                <div class="nav-links">
+                    <a href="/" class="nav-link" data-route="/">Home</a>
+                    <a href="/our-story" class="nav-link" data-route="/our-story">Our Story</a>
+                    <a href="/our-products" class="nav-link" data-route="/our-products">Our Products</a>
+                    <a href="/gallery" class="nav-link" data-route="/gallery">Gallery</a>
+                    <a href="/blog" class="nav-link" data-route="/blog">Blog</a>
+                    <a href="/contact" class="nav-link" data-route="/contact">Contact Us</a>
+                </div>
+
+                <div id="social-dock" class="social-dock" aria-hidden="true">
+                    <!-- Social icons will be moved here on scroll -->
+                </div>
+
+                <button class="mobile-menu-toggle" aria-label="Toggle mobile menu" aria-expanded="false">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Home Page -->
+        <div id="home-page" class="page active">
+            <!-- Hero Section -->
+            <section id="hero" class="hero-section" aria-labelledby="hero-title">
+                <div class="hero-background" role="img" aria-label="Lush garden greenhouse scene"></div>
+                <div class="hero-overlay">
+                    <div class="hero-content">
+                        <h1 id="hero-title" class="hero-title">GreenLife Nursery</h1>
+                        <p class="hero-tagline">Growing greener spaces, one plant at a time.</p>
+                        <button class="btn btn-primary hero-cta">Contact Us</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- About Section -->
+            <section id="about" class="about-section section-padding" aria-labelledby="about-title">
+                <div class="container">
+                    <div class="about-grid">
+                        <div class="about-content">
+                            <h2 id="about-title" class="section-title">Growing Dreams Into Reality</h2>
+                            <p class="about-text">From balconies to backyards, we help your ideas take root with expert care and curated greens. Our passion for plants and dedication to sustainable gardening practices has made us a trusted partner for garden enthusiasts across the region.</p>
+                            <button class="btn btn-secondary" data-route="/our-story">About Us</button>
+                        </div>
+                        <div class="about-features">
+                            <div class="feature-item" data-animate="fade-bounce">
+                                <div class="feature-icon">🌿</div>
+                                <h3 class="feature-title">Wide Range of Products</h3>
+                                <p class="feature-description">Over 2,000 plant varieties and gardening supplies</p>
+                            </div>
+                            <div class="feature-item" data-animate="fade-bounce">
+                                <div class="feature-icon">💡</div>
+                                <h3 class="feature-title">Expert Advice</h3>
+                                <p class="feature-description">Professional guidance from certified horticulturists</p>
+                            </div>
+                            <div class="feature-item" data-animate="fade-bounce">
+                                <div class="feature-icon">🌱</div>
+                                <h3 class="feature-title">Best Gardening Solutions</h3>
+                                <p class="feature-description">Custom solutions for every space and skill level</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- People Love Section -->
+            <section id="people-love" class="people-love-section section-padding" aria-labelledby="people-love-title">
+                <div class="container">
+                    <div class="people-love-grid">
+                        <div class="people-love-image" data-animate="slide-left">
+                            <div class="lifestyle-image" role="img" aria-label="Happy customers with their thriving garden"></div>
+                        </div>
+                        <div class="people-love-content" data-animate="slide-right">
+                            <h2 id="people-love-title" class="section-title">Why People Love GreenLife</h2>
+                            <p>Our customers trust us to transform their spaces into thriving green sanctuaries. From apartment balconies to sprawling backyards, we've helped thousands of gardening enthusiasts create their perfect outdoor oasis with low-maintenance solutions and expert guidance.</p>
+                            <div class="trust-indicators">
+                                <div class="trust-item">✓ 98% Customer Satisfaction</div>
+                                <div class="trust-item">✓ 30-Day Plant Guarantee</div>
+                                <div class="trust-item">✓ Free Expert Consultation</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Video Section -->
+            <section id="video" class="video-section section-padding" aria-labelledby="video-title">
+                <div class="container">
+                    <h2 id="video-title" class="section-title text-center">See Our Gardens Come to Life</h2>
+                    <div class="video-container">
+                        <div class="video-wrapper" data-video-id="dQw4w9WgXcQ">
+                            <div class="video-poster" role="img" aria-label="Garden tour video preview"></div>
+                            <button class="video-play-button" aria-label="Play garden tour video">
+                                <span class="play-icon">▶</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Stats Counter Section -->
+            <section id="stats" class="stats-section section-padding" aria-labelledby="stats-title">
+                <div class="stats-background"></div>
+                <div class="container">
+                    <h2 id="stats-title" class="section-title text-center">Our Growing Impact</h2>
+                    <div class="stats-grid">
+                        <div class="stat-item" data-animate="counter">
+                            <div class="stat-icon">👥</div>
+                            <div class="stat-number" data-count="5000">0</div>
+                            <div class="stat-label">Happy Customers</div>
+                        </div>
+                        <div class="stat-item" data-animate="counter">
+                            <div class="stat-icon">🏢</div>
+                            <div class="stat-number" data-count="150">0</div>
+                            <div class="stat-label">B2B Clients</div>
+                        </div>
+                        <div class="stat-item" data-animate="counter">
+                            <div class="stat-icon">🏆</div>
+                            <div class="stat-number" data-count="25">0</div>
+                            <div class="stat-label">Awards Won</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Products Section -->
+            <section id="products" class="products-section section-padding" aria-labelledby="products-title">
+                <div class="container">
+                    <h2 id="products-title" class="section-title text-center">Our Products</h2>
+                    <div class="products-grid">
+                        <article class="product-card" data-animate="fade-up">
+                            <div class="product-image" role="img" aria-label="Indoor plants collection"></div>
+                            <div class="product-content">
+                                <h3 class="product-title">Indoor Plants</h3>
+                                <p class="product-description">Perfect companions for your living spaces</p>
+                                <div class="product-icons">
+                                    <span class="product-icon" title="Low maintenance">🌿</span>
+                                    <span class="product-icon" title="Easy watering">💧</span>
+                                    <span class="product-icon" title="Bright light">☀️</span>
+                                </div>
+                            </div>
+                        </article>
+                        
+                        <article class="product-card" data-animate="fade-up">
+                            <div class="product-image" role="img" aria-label="Professional garden tools"></div>
+                            <div class="product-content">
+                                <h3 class="product-title">Garden Tools</h3>
+                                <p class="product-description">Professional-grade tools for every gardener</p>
+                                <div class="product-icons">
+                                    <span class="product-icon" title="Durable">🔨</span>
+                                    <span class="product-icon" title="Precision">✂️</span>
+                                    <span class="product-icon" title="Complete kit">🪴</span>
+                                </div>
+                            </div>
+                        </article>
+                        
+                        <article class="product-card" data-animate="fade-up">
+                            <div class="product-image" role="img" aria-label="Premium seeds and seedlings"></div>
+                            <div class="product-content">
+                                <h3 class="product-title">Seeds & Seedlings</h3>
+                                <p class="product-description">Start your garden with premium quality seeds</p>
+                                <div class="product-icons">
+                                    <span class="product-icon" title="High germination">🌱</span>
+                                    <span class="product-icon" title="Flower varieties">🌼</span>
+                                    <span class="product-icon" title="Vegetable varieties">🍅</span>
+                                </div>
+                            </div>
+                        </article>
+                        
+                        <article class="product-card" data-animate="fade-up">
+                            <div class="product-image" role="img" aria-label="Stylish pots and planters"></div>
+                            <div class="product-content">
+                                <h3 class="product-title">Pots & Planters</h3>
+                                <p class="product-description">Stylish containers for every plant</p>
+                                <div class="product-icons">
+                                    <span class="product-icon" title="Ceramic quality">🏺</span>
+                                    <span class="product-icon" title="Designer styles">🎨</span>
+                                    <span class="product-icon" title="All sizes">📏</span>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="text-center">
+                        <button class="btn btn-primary" data-route="/our-products">Explore Catalog</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Membership Section -->
+            <section id="membership" class="membership-section section-padding" aria-labelledby="membership-title">
+                <div class="membership-banner" role="img" aria-label="Garden club membership benefits"></div>
+                <div class="container">
+                    <div class="membership-grid">
+                        <div class="membership-benefits">
+                            <h2 id="membership-title" class="section-title">Join Our Gardening Club</h2>
+                            <p class="membership-subtitle">Join the Gardening Club for perks, workshops, and weekly care tips.</p>
+                            <ul class="benefits-list">
+                                <li class="benefit-item">🌿 5% off on all plant varieties</li>
+                                <li class="benefit-item">🎁 Exclusive welcome kit</li>
+                                <li class="benefit-item">📚 Weekly plant care tips</li>
+                                <li class="benefit-item">🎓 Workshop discounts</li>
+                                <li class="benefit-item">🎪 VIP event access</li>
+                                <li class="benefit-item">🎉 Seasonal special offers</li>
+                            </ul>
+                        </div>
+                        <div class="membership-form-container">
+                            <form id="membership-form" class="membership-form" novalidate>
+                                <div class="form-group">
+                                    <label for="member-name" class="form-label">Full Name *</label>
+                                    <input type="text" id="member-name" name="name" class="form-control" required>
+                                    <div class="error-message" role="alert"></div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="member-email" class="form-label">Email Address *</label>
+                                    <input type="email" id="member-email" name="email" class="form-control" required>
+                                    <div class="error-message" role="alert"></div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="member-phone" class="form-label">Phone Number</label>
+                                    <input type="tel" id="member-phone" name="phone" class="form-control">
+                                    <div class="error-message" role="alert"></div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="member-city" class="form-label">City/Location</label>
+                                    <input type="text" id="member-city" name="city" class="form-control">
+                                    <div class="error-message" role="alert"></div>
+                                </div>
+                                <div class="form-group checkbox-group">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" id="member-consent" name="consent" required>
+                                        <span class="checkmark"></span>
+                                        I agree to receive gardening tips and promotional emails
+                                    </label>
+                                    <div class="error-message" role="alert"></div>
+                                </div>
+                                <button type="submit" class="btn btn-primary btn-full-width">
+                                    <span class="button-text">Join Garden Club</span>
+                                    <span class="button-loading hidden">Joining...</span>
+                                </button>
+                            </form>
+                            <div id="form-success" class="form-success hidden" role="alert">
+                                <h3>Welcome to the Garden Club! 🌿</h3>
+                                <p>Thank you for joining! Check your email for your welcome kit and first set of gardening tips.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Reviews Section -->
+            <section id="reviews" class="reviews-section section-padding" aria-labelledby="reviews-title">
+                <div class="container">
+                    <div class="reviews-header">
+                        <h2 id="reviews-title" class="section-title">What Our Customers Say</h2>
+                        <button class="btn btn-secondary" id="write-review-btn">Write a Review</button>
+                    </div>
+                    <div class="reviews-stats">
+                        <div class="average-rating">
+                            <span class="rating-number">4.9</span>
+                            <div class="stars">
+                                <span class="star filled">★</span>
+                                <span class="star filled">★</span>
+                                <span class="star filled">★</span>
+                                <span class="star filled">★</span>
+                                <span class="star filled">★</span>
+                            </div>
+                            <span class="rating-count">Based on 247 reviews</span>
+                        </div>
+                    </div>
+                    <div class="reviews-grid">
+                        <article class="review-card" data-animate="stagger-up">
+                            <div class="review-header">
+                                <div class="reviewer-avatar">SJ</div>
+                                <div class="reviewer-info">
+                                    <h3 class="reviewer-name">Sarah Johnson</h3>
+                                    <div class="review-stars">
+                                        <span class="star filled">★</span>
+                                        <span class="star filled">★</span>
+                                        <span class="star filled">★</span>
+                                        <span class="star filled">★</span>
+                                        <span class="star filled">★</span>
+                                    </div>
+                                    <span class="review-date">2 weeks ago</span>
+                                </div>
+                            </div>
+                            <p class="review-text">Absolutely love the quality of plants and the expert advice. My garden has never looked better!</p>
+                        </article>
+                        
+                        <article class="review-card" data-animate="stagger-up">
+                            <div class="review-header">
+                                <div class="reviewer-avatar">MC</div>
+                                <div class="reviewer-info">
+                                    <h3 class="reviewer-name">Michael Chen</h3>
+                                    <div class="review-stars">
+                                        <span class="star filled">★</span>
+                                        <span class="star filled">★</span>
+                                        <span class="star filled">★</span>
+                                        <span class="star filled">★</span>
+                                        <span class="star filled">★</span>
+                                    </div>
+                                    <span class="review-date">1 month ago</span>
+                                </div>
+                            </div>
+                            <p class="review-text">The staff is incredibly knowledgeable. They helped me create a perfect indoor garden for my apartment.</p>
+                        </article>
+                        
+                        <article class="review-card" data-animate="stagger-up">
+                            <div class="review-header">
+                                <div class="reviewer-avatar">ED</div>
+                                <div class="reviewer-info">
+                                    <h3 class="reviewer-name">Emma Davis</h3>
+                                    <div class="review-stars">
+                                        <span class="star filled">★</span>
+                                        <span class="star filled">★</span>
+                                        <span class="star filled">★</span>
+                                        <span class="star filled">★</span>
+                                        <span class="star">★</span>
+                                    </div>
+                                    <span class="review-date">3 weeks ago</span>
+                                </div>
+                            </div>
+                            <p class="review-text">Great selection of plants and tools. The membership benefits are fantastic too!</p>
+                        </article>
+                    </div>
+                    <div class="text-center">
+                        <button class="btn btn-outline">Load More Reviews</button>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Our Story Page -->
+        <div id="our-story-page" class="page">
+            <!-- Hero Section -->
+            <section class="story-hero-section section-padding">
+                <div class="container">
+                    <div class="story-hero-grid">
+                        <div class="story-hero-image" data-animate="slide-left">
+                            <div class="founder-image" role="img" aria-label="Sarah Mitchell, founder of GreenLife Nursery"></div>
+                        </div>
+                        <div class="story-hero-content" data-animate="slide-right">
+                            <h1 class="page-title">Our Journey of Growth</h1>
+                            <p class="page-subtitle">From a small passion project to a thriving community of plant lovers</p>
+                            <p class="story-intro">What started as a love for gardening in our backyard has blossomed into a mission to bring the joy of plants to every home and garden. Our story is rooted in the belief that everyone deserves to experience the peace and satisfaction that comes from nurturing life.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Timeline Section -->
+            <section class="timeline-section section-padding">
+                <div class="container">
+                    <h2 class="section-title text-center">Our Great Story</h2>
+                    <div class="timeline-container">
+                        <div class="timeline-vine" id="timeline-vine"></div>
+                        <div class="timeline-item" data-year="2018" data-animate="timeline-node">
+                            <div class="timeline-node">
+                                <div class="timeline-year">2018</div>
+                                <div class="timeline-content">
+                                    <h3 class="timeline-title">Seeds of an Idea</h3>
+                                    <p class="timeline-description">Started with a small collection of plants in our home garden, sharing cuttings with neighbors and friends.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="timeline-item" data-year="2019" data-animate="timeline-node">
+                            <div class="timeline-node">
+                                <div class="timeline-year">2019</div>
+                                <div class="timeline-content">
+                                    <h3 class="timeline-title">First Greenhouse</h3>
+                                    <p class="timeline-description">Built our first greenhouse and began cultivating a wider variety of plants and flowers.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="timeline-item" data-year="2020" data-animate="timeline-node">
+                            <div class="timeline-node">
+                                <div class="timeline-year">2020</div>
+                                <div class="timeline-content">
+                                    <h3 class="timeline-title">Online Expansion</h3>
+                                    <p class="timeline-description">Launched our online platform to reach plant lovers beyond our local community during challenging times.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="timeline-item" data-year="2021" data-animate="timeline-node">
+                            <div class="timeline-node">
+                                <div class="timeline-year">2021</div>
+                                <div class="timeline-content">
+                                    <h3 class="timeline-title">Expert Team</h3>
+                                    <p class="timeline-description">Welcomed certified horticulturists and experienced gardeners to our growing family.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="timeline-item" data-year="2022" data-animate="timeline-node">
+                            <div class="timeline-node">
+                                <div class="timeline-year">2022</div>
+                                <div class="timeline-content">
+                                    <h3 class="timeline-title">Recognition & Awards</h3>
+                                    <p class="timeline-description">Received the Regional Best Nursery Award and eco-friendly business certification.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="timeline-item" data-year="2023" data-animate="timeline-node">
+                            <div class="timeline-node">
+                                <div class="timeline-year">2023</div>
+                                <div class="timeline-content">
+                                    <h3 class="timeline-title">5,000 Happy Customers</h3>
+                                    <p class="timeline-description">Celebrated serving over 5,000 customers and launched our garden consultation services.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="timeline-item" data-year="2024" data-animate="timeline-node">
+                            <div class="timeline-node">
+                                <div class="timeline-year">2024</div>
+                                <div class="timeline-content">
+                                    <h3 class="timeline-title">New Facility</h3>
+                                    <p class="timeline-description">Opened our state-of-the-art facility with expanded greenhouse space and educational center.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Current State Section -->
+            <section class="current-state-section section-padding">
+                <div class="container">
+                    <div class="current-state-grid">
+                        <div class="current-state-content" data-animate="slide-right">
+                            <h2 class="section-title">Where We Stand Today</h2>
+                            <p class="current-state-text">Today, GreenLife Nursery stands as a testament to the power of nurturing growth. With over 5,000 satisfied customers, a team of passionate experts, and a facility spanning three acres, we continue to be the trusted partner for garden enthusiasts. Our mission remains the same: to help every plant parent succeed, whether they're tending to a single succulent or managing a sprawling garden.</p>
+                            <div class="achievements-grid">
+                                <div class="achievement-item">
+                                    <div class="achievement-number">5,000+</div>
+                                    <div class="achievement-label">Happy Customers</div>
+                                </div>
+                                <div class="achievement-item">
+                                    <div class="achievement-number">2,000+</div>
+                                    <div class="achievement-label">Plant Varieties</div>
+                                </div>
+                                <div class="achievement-item">
+                                    <div class="achievement-number">15</div>
+                                    <div class="achievement-label">Expert Staff</div>
+                                </div>
+                                <div class="achievement-item">
+                                    <div class="achievement-number">25+</div>
+                                    <div class="achievement-label">Industry Awards</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="current-state-image" data-animate="slide-left">
+                            <div class="garden-image" role="img" aria-label="Lush garden facility"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Team Section -->
+            <section class="team-section section-padding">
+                <div class="container">
+                    <h2 class="section-title text-center">Meet Our Team</h2>
+                    <div class="team-grid">
+                        <div class="team-card" data-animate="fade-up">
+                            <div class="team-member-image">
+                                <div class="member-avatar" role="img" aria-label="Sarah Mitchell portrait"></div>
+                            </div>
+                            <div class="team-member-content">
+                                <h3 class="member-name">Sarah Mitchell</h3>
+                                <p class="member-role">Founder & Head Horticulturist</p>
+                                <p class="member-quote">"Every plant has a story, and I love helping our customers write theirs."</p>
+                            </div>
+                        </div>
+                        <div class="team-card" data-animate="fade-up">
+                            <div class="team-member-image">
+                                <div class="member-avatar" role="img" aria-label="David Chen portrait"></div>
+                            </div>
+                            <div class="team-member-content">
+                                <h3 class="member-name">David Chen</h3>
+                                <p class="member-role">Plant Care Specialist</p>
+                                <p class="member-quote">"The joy on someone's face when their plant thrives makes every day worthwhile."</p>
+                            </div>
+                        </div>
+                        <div class="team-card" data-animate="fade-up">
+                            <div class="team-member-image">
+                                <div class="member-avatar" role="img" aria-label="Maria Rodriguez portrait"></div>
+                            </div>
+                            <div class="team-member-content">
+                                <h3 class="member-name">Maria Rodriguez</h3>
+                                <p class="member-role">Garden Design Expert</p>
+                                <p class="member-quote">"Gardens are outdoor living rooms, and every space has potential for beauty."</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Our Products Page -->
+        <div id="our-products-page" class="page">
+            <section class="products-hero-section section-padding">
+                <div class="container">
+                    <div class="page-hero">
+                        <h1 class="page-title">Our Products</h1>
+                        <p class="page-subtitle">Discover our complete range of plants, tools, and gardening essentials</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="category-grid-section section-padding">
+                <div class="container">
+                    <div class="category-grid">
+                        <article class="category-card" data-animate="fade-up" data-category="indoor-plants">
+                            <div class="category-image" role="img" aria-label="Indoor plants collection"></div>
+                            <div class="category-content">
+                                <h3 class="category-title">Indoor Plants</h3>
+                                <p class="category-description">Perfect companions for your living spaces</p>
+                                <div class="category-arrow">
+                                    <span class="arrow-icon">→</span>
+                                    <span class="learn-more hidden">Learn More →</span>
+                                </div>
+                            </div>
+                        </article>
+                        
+                        <article class="category-card" data-animate="fade-up" data-category="garden-tools">
+                            <div class="category-image" role="img" aria-label="Professional garden tools"></div>
+                            <div class="category-content">
+                                <h3 class="category-title">Garden Tools</h3>
+                                <p class="category-description">Professional-grade tools for every gardener</p>
+                                <div class="category-arrow">
+                                    <span class="arrow-icon">→</span>
+                                    <span class="learn-more hidden">Learn More →</span>
+                                </div>
+                            </div>
+                        </article>
+                        
+                        <article class="category-card" data-animate="fade-up" data-category="seeds-seedlings">
+                            <div class="category-image" role="img" aria-label="Premium seeds and seedlings"></div>
+                            <div class="category-content">
+                                <h3 class="category-title">Seeds & Seedlings</h3>
+                                <p class="category-description">Start your garden with premium quality seeds</p>
+                                <div class="category-arrow">
+                                    <span class="arrow-icon">→</span>
+                                    <span class="learn-more hidden">Learn More →</span>
+                                </div>
+                            </div>
+                        </article>
+                        
+                        <article class="category-card" data-animate="fade-up" data-category="pots-planters">
+                            <div class="category-image" role="img" aria-label="Stylish pots and planters"></div>
+                            <div class="category-content">
+                                <h3 class="category-title">Pots & Planters</h3>
+                                <p class="category-description">Stylish containers for every plant</p>
+                                <div class="category-arrow">
+                                    <span class="arrow-icon">→</span>
+                                    <span class="learn-more hidden">Learn More →</span>
+                                </div>
+                            </div>
+                        </article>
+                        
+                        <article class="category-card" data-animate="fade-up" data-category="fertilizers">
+                            <div class="category-image" role="img" aria-label="Organic fertilizers and nutrients"></div>
+                            <div class="category-content">
+                                <h3 class="category-title">Fertilizers</h3>
+                                <p class="category-description">Organic nutrients for healthy growth</p>
+                                <div class="category-arrow">
+                                    <span class="arrow-icon">→</span>
+                                    <span class="learn-more hidden">Learn More →</span>
+                                </div>
+                            </div>
+                        </article>
+                        
+                        <article class="category-card" data-animate="fade-up" data-category="outdoor-plants">
+                            <div class="category-image" role="img" aria-label="Hardy outdoor plants"></div>
+                            <div class="category-content">
+                                <h3 class="category-title">Outdoor Plants</h3>
+                                <p class="category-description">Hardy varieties for gardens and landscapes</p>
+                                <div class="category-arrow">
+                                    <span class="arrow-icon">→</span>
+                                    <span class="learn-more hidden">Learn More →</span>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Category Page (Indoor Plants Example) -->
+        <div id="category-page" class="page">
+            <section class="category-hero-section section-padding">
+                <div class="container">
+                    <div class="breadcrumb">
+                        <a href="/our-products" data-route="/our-products">Our Products</a>
+                        <span class="breadcrumb-separator">›</span>
+                        <span class="current-category">Indoor Plants</span>
+                    </div>
+                    <div class="page-hero">
+                        <h1 class="page-title" id="category-title">Indoor Plants</h1>
+                        <p class="page-subtitle" id="category-subtitle">Transform your indoor spaces with our beautiful collection of houseplants</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="category-products-section section-padding">
+                <div class="container">
+                    <div class="category-products-grid" id="category-products-grid">
+                        <!-- Products will be dynamically populated -->
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Contact Page -->
+        <div id="contact-page" class="page">
+            <section class="contact-hero-section section-padding">
+                <div class="container">
+                    <div class="page-hero">
+                        <h1 class="page-title">Contact Us</h1>
+                        <p class="page-subtitle">Get in touch with our gardening experts</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="contact-content-section section-padding">
+                <div class="container">
+                    <div class="contact-grid">
+                        <div class="contact-form-container">
+                            <h2 class="form-section-title">Send Us a Message</h2>
+                            <form id="contact-form" class="contact-form" novalidate>
+                                <div class="form-group">
+                                    <label for="contact-name" class="form-label">Name *</label>
+                                    <input type="text" id="contact-name" name="name" class="form-control" required>
+                                    <div class="error-message" role="alert"></div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="contact-email" class="form-label">Email *</label>
+                                    <input type="email" id="contact-email" name="email" class="form-control" required>
+                                    <div class="error-message" role="alert"></div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="contact-phone" class="form-label">Phone</label>
+                                    <input type="tel" id="contact-phone" name="phone" class="form-control">
+                                    <div class="error-message" role="alert"></div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="contact-message" class="form-label">Message *</label>
+                                    <textarea id="contact-message" name="message" class="form-control" rows="5" required></textarea>
+                                    <div class="error-message" role="alert"></div>
+                                </div>
+                                <button type="submit" class="btn btn-primary btn-full-width">
+                                    <span class="button-text">Send Message</span>
+                                    <span class="button-loading hidden">Sending...</span>
+                                </button>
+                            </form>
+                        </div>
+                        
+                        <div class="contact-info-container">
+                            <div class="contact-info-section">
+                                <h3 class="contact-info-title">Visit Our Store</h3>
+                                <div class="contact-info-item">
+                                    <div class="contact-icon">📍</div>
+                                    <div class="contact-details">
+                                        <p>123 Garden Way<br>Green Valley, CA 90210</p>
+                                    </div>
+                                </div>
+                                <div class="contact-info-item">
+                                    <div class="contact-icon">📞</div>
+                                    <div class="contact-details">
+                                        <p><a href="tel:+15551234567">+1 (555) 123-4567</a></p>
+                                    </div>
+                                </div>
+                                <div class="contact-info-item">
+                                    <div class="contact-icon">📧</div>
+                                    <div class="contact-details">
+                                        <p><a href="mailto:hello@greenlifenursery.com">hello@greenlifenursery.com</a></p>
+                                    </div>
+                                </div>
+                                <div class="contact-info-item">
+                                    <div class="contact-icon">🕒</div>
+                                    <div class="contact-details">
+                                        <p>Monday - Saturday: 8:00 AM - 7:00 PM<br>Sunday: 10:00 AM - 5:00 PM</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="map-section">
+                                <h3 class="contact-info-title">Find Us</h3>
+                                <div class="map-container">
+                                    <div class="map-embed">
+                                        <iframe
+                                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3024.1!2d-74.0059!3d40.7128!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDDCsDQyJzQ2LjEiTiA3NMKwMDAnMjEuNCJX!5e0!3m2!1sen!2sus!4v1234567890"
+                                            width="100%"
+                                            height="300"
+                                            style="border:0; border-radius: var(--radius-xl);"
+                                            allowfullscreen=""
+                                            loading="lazy"
+                                            referrerpolicy="no-referrer-when-downgrade"
+                                            title="GreenLife Nursery Location">
+                                        </iframe>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3 class="footer-title">GreenLife Nursery</h3>
+                    <p class="footer-text">Transforming spaces into thriving green sanctuaries with expert care and premium plants.</p>
+                    <div class="footer-social">
+                        <a href="#" class="footer-social-link" aria-label="Instagram" target="_blank">📷</a>
+                        <a href="#" class="footer-social-link" aria-label="Facebook" target="_blank">📘</a>
+                        <a href="#" class="footer-social-link" aria-label="YouTube" target="_blank">📺</a>
+                        <a href="#" class="footer-social-link" aria-label="Pinterest" target="_blank">📌</a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h4 class="footer-column-title">Visit Us</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Plant Care Guide</a></li>
+                        <li><a href="#">Garden Planning</a></li>
+                        <li><a href="#">Workshops</a></li>
+                        <li><a href="#">Delivery Info</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4 class="footer-column-title">Contact</h4>
+                    <div class="contact-info">
+                        <p>📧 hello@greenlifenursery.com</p>
+                        <p>📞 +1 (555) 123-4567</p>
+                        <p>🕒 Mon-Sat: 8AM-7PM<br>Sun: 10AM-5PM</p>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h4 class="footer-column-title">Find Us</h4>
+                    <div class="map-container">
+                        <div class="map-placeholder" role="img" aria-label="Store location map">
+                            <div class="map-content">
+                                <div class="map-icon">📍</div>
+                                <p>123 Garden Way<br>Green Valley, CA 90210</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 GreenLife Nursery. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Review Modal -->
+    <div id="review-modal" class="modal hidden" role="dialog" aria-labelledby="review-modal-title" aria-hidden="true">
+        <div class="modal-overlay" aria-hidden="true"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="review-modal-title">Share Your Experience</h3>
+                <button class="modal-close" aria-label="Close modal">&times;</button>
+            </div>
+            <form id="review-form" class="modal-body">
+                <div class="form-group">
+                    <label for="review-name" class="form-label">Your Name *</label>
+                    <input type="text" id="review-name" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Rating *</label>
+                    <div class="rating-input">
+                        <input type="radio" id="star5" name="rating" value="5" required>
+                        <label for="star5" class="star-label">★</label>
+                        <input type="radio" id="star4" name="rating" value="4">
+                        <label for="star4" class="star-label">★</label>
+                        <input type="radio" id="star3" name="rating" value="3">
+                        <label for="star3" class="star-label">★</label>
+                        <input type="radio" id="star2" name="rating" value="2">
+                        <label for="star2" class="star-label">★</label>
+                        <input type="radio" id="star1" name="rating" value="1">
+                        <label for="star1" class="star-label">★</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="review-comment" class="form-label">Your Review *</label>
+                    <textarea id="review-comment" class="form-control" rows="4" required></textarea>
+                </div>
+            </form>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary modal-cancel">Cancel</button>
+                <button type="submit" form="review-form" class="btn btn-primary">Submit Review</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

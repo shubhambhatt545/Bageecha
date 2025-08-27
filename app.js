@@ -737,13 +737,13 @@ function loadYouTubeVideo(wrapper, videoId) {
 
 // Form validation and submission
 function initForms() {
-  const membershipForm = document.getElementById('membership-form');
+  // const membershipForm = document.getElementById('membership-form');
   const reviewForm = document.getElementById('review-form');
   const contactForm = document.getElementById('contact-form');
   
-  if (membershipForm) {
-    initMembershipForm(membershipForm);
-  }
+  // if (membershipForm) {
+  //   initMembershipForm(membershipForm);
+  // }
   
   if (reviewForm) {
     initReviewForm(reviewForm);
@@ -820,77 +820,77 @@ function validateContactForm(form) {
   return isValid;
 }
 
-function initMembershipForm(form) {
-  const inputs = form.querySelectorAll('.form-control');
-  const submitButton = form.querySelector('button[type="submit"]');
+// function initMembershipForm(form) {
+//   const inputs = form.querySelectorAll('.form-control');
+//   const submitButton = form.querySelector('button[type="submit"]');
   
-  // Real-time validation
-  inputs.forEach(input => {
-    input.addEventListener('blur', () => validateField(input));
-    input.addEventListener('input', () => {
-      if (input.classList.contains('error')) {
-        validateField(input);
-      }
-    });
-  });
+//   // Real-time validation
+//   inputs.forEach(input => {
+//     input.addEventListener('blur', () => validateField(input));
+//     input.addEventListener('input', () => {
+//       if (input.classList.contains('error')) {
+//         validateField(input);
+//       }
+//     });
+//   });
   
-  // Form submission
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
+//   // Form submission
+//   form.addEventListener('submit', async (e) => {
+//     e.preventDefault();
     
-    const isValid = validateForm(form);
-    if (!isValid) {
-      // Focus on first error field
-      const firstError = form.querySelector('.form-control.error');
-      if (firstError) {
-        firstError.focus();
-      }
-      return;
-    }
+//     const isValid = validateForm(form);
+//     if (!isValid) {
+//       // Focus on first error field
+//       const firstError = form.querySelector('.form-control.error');
+//       if (firstError) {
+//         firstError.focus();
+//       }
+//       return;
+//     }
     
-    // Show loading state
-    const buttonText = submitButton.querySelector('.button-text');
-    const buttonLoading = submitButton.querySelector('.button-loading');
+//     // Show loading state
+//     const buttonText = submitButton.querySelector('.button-text');
+//     const buttonLoading = submitButton.querySelector('.button-loading');
     
-    buttonText.classList.add('hidden');
-    buttonLoading.classList.remove('hidden');
-    submitButton.disabled = true;
+//     buttonText.classList.add('hidden');
+//     buttonLoading.classList.remove('hidden');
+//     submitButton.disabled = true;
     
-    try {
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 2000));
+//     try {
+//       // Simulate API call
+//       await new Promise(resolve => setTimeout(resolve, 2000));
       
-      // Show success message
-      const formContainer = form.parentElement;
-      const successMessage = document.getElementById('form-success');
+//       // Show success message
+//       const formContainer = form.parentElement;
+//       const successMessage = document.getElementById('form-success');
       
-      if (successMessage) {
-        formContainer.style.transition = 'all 300ms ease';
-        formContainer.style.opacity = '0';
-        formContainer.style.transform = 'translateY(-20px)';
+//       if (successMessage) {
+//         formContainer.style.transition = 'all 300ms ease';
+//         formContainer.style.opacity = '0';
+//         formContainer.style.transform = 'translateY(-20px)';
         
-        setTimeout(() => {
-          formContainer.classList.add('hidden');
-          successMessage.classList.remove('hidden');
-          successMessage.style.opacity = '0';
-          successMessage.style.transform = 'translateY(20px)';
+//         setTimeout(() => {
+//           formContainer.classList.add('hidden');
+//           successMessage.classList.remove('hidden');
+//           successMessage.style.opacity = '0';
+//           successMessage.style.transform = 'translateY(20px)';
           
-          requestAnimationFrame(() => {
-            successMessage.style.transition = 'all 600ms cubic-bezier(0.22, 1, 0.36, 1)';
-            successMessage.style.opacity = '1';
-            successMessage.style.transform = 'translateY(0)';
-          });
-        }, 300);
-      }
-    } catch (error) {
-      // Reset button state on error
-      buttonText.classList.remove('hidden');
-      buttonLoading.classList.add('hidden');
-      submitButton.disabled = false;
-      showToast('Something went wrong. Please try again.', 'error');
-    }
-  });
-}
+//           requestAnimationFrame(() => {
+//             successMessage.style.transition = 'all 600ms cubic-bezier(0.22, 1, 0.36, 1)';
+//             successMessage.style.opacity = '1';
+//             successMessage.style.transform = 'translateY(0)';
+//           });
+//         }, 300);
+//       }
+//     } catch (error) {
+//       // Reset button state on error
+//       buttonText.classList.remove('hidden');
+//       buttonLoading.classList.add('hidden');
+//       submitButton.disabled = false;
+//       showToast('Something went wrong. Please try again.', 'error');
+//     }
+//   });
+// }
 
 function validateForm(form) {
   const inputs = form.querySelectorAll('.form-control');

@@ -103,8 +103,10 @@
                 <div class="container">
                     <div class="about-grid">
                         <div class="about-content">
-                            <h2 id="about-title" class="section-title">Growing Dreams Into Reality</h2>
-                            <p class="about-text">From balconies to backyards, we help your ideas take root with expert care and curated greens. Our passion for plants and dedication to sustainable gardening practices has made us a trusted partner for garden enthusiasts across the region.</p>
+                            <h2 id="about-title" class="section-title">Where Nature Meets Craftsmanship</h2>
+                            <p class="about-text">At <b>Bageecha</b>, we believe a garden is more than plants and pathways - it’s a living story. Ours is a passionate team of designers, horticulturists, and caretakers who blend innovation, craftsmanship, and environmental responsibility to breathe life into every space.
+From the first sprout to the final flourish, we shape green spaces that inspire, soothe the mind, and bring people closer to nature. With us, you don’t just see a garden - you feel it.
+</p>
                             <button class="btn btn-secondary" data-route="/our-story">About Us</button>
                         </div>
                         <div class="about-features">
@@ -136,12 +138,16 @@
                             <div class="lifestyle-image" role="img" aria-label="Happy customers with their thriving garden"></div>
                         </div>
                         <div class="people-love-content" data-animate="slide-right">
-                            <h2 id="people-love-title" class="section-title">Why People Love GreenLife</h2>
-                            <p>Our customers trust us to transform their spaces into thriving green sanctuaries. From apartment balconies to sprawling backyards, we've helped thousands of gardening enthusiasts create their perfect outdoor oasis with low-maintenance solutions and expert guidance.</p>
+                            <h2 id="people-love-title" class="section-title">Why People Love Bageecha</h2>
+                            <p>To our customers, <b>Bageecha isn’t just a gardening brand - it’s a trusted companion in their journey to create green, soulful spaces</b>. Whether it’s a tiny balcony or a sprawling backyard, people turn to us because we make gardening feel effortless, joyful, and deeply personal.
+They love how we listen, how we guide, and how we turn even the smallest corner into a thriving sanctuary. With our thoughtful approach, expert support, and commitment to quality, Bageecha stands out as a brand that genuinely cares—not just about plants, but about the people who grow them.</p>
                             <div class="trust-indicators">
+                                <div><b>Here’s what makes Bageecha special in their eyes:</b></div>
                                 <div class="trust-item">✓ 98% Customer Satisfaction</div>
                                 <div class="trust-item">✓ 30-Day Plant Guarantee</div>
                                 <div class="trust-item">✓ Free Expert Consultation</div>
+                                <div class="trust-item">✓ Low-maintenance, high-impact solutions</div>
+                                <div class="trust-item">✓ A community that grows together</div>
                             </div>
                         </div>
                     </div>
@@ -165,23 +171,24 @@
 
             <!-- Stats Counter Section -->
             <section id="stats" class="stats-section section-padding" aria-labelledby="stats-title">
-                <div class="stats-background"></div>
+                <div class="stats-background">
+                </div>
                 <div class="container">
                     <h2 id="stats-title" class="section-title text-center">Our Growing Impact</h2>
                     <div class="stats-grid">
                         <div class="stat-item" data-animate="counter">
                             <div class="stat-icon">👥</div>
-                            <div class="stat-number" data-count="5000">0</div>
+                            <div class="stat-number" data-count="5000"><p class="counting">0</p></div>
                             <div class="stat-label">Happy Customers</div>
                         </div>
                         <div class="stat-item" data-animate="counter">
                             <div class="stat-icon">🏢</div>
-                            <div class="stat-number" data-count="150">0</div>
+                            <div class="stat-number" data-count="150"><p class="counting">0</p></div>
                             <div class="stat-label">B2B Clients</div>
                         </div>
                         <div class="stat-item" data-animate="counter">
                             <div class="stat-icon">🏆</div>
-                            <div class="stat-number" data-count="25">0</div>
+                            <div class="stat-number" data-count="25"><p class="counting">0</p></div>
                             <div class="stat-label">Awards Won</div>
                         </div>
                     </div>
@@ -252,7 +259,7 @@
             </section>
 
             <!-- Membership Section -->
-            <section id="membership" class="membership-section section-padding" aria-labelledby="membership-title">
+            <!-- <section id="membership" class="membership-section section-padding" aria-labelledby="membership-title">
                 <div class="membership-banner" role="img" aria-label="Garden club membership benefits"></div>
                 <div class="container">
                     <div class="membership-grid">
@@ -310,6 +317,99 @@
                         </div>
                     </div>
                 </div>
+            </section> -->
+            <!-- Contact Section -->
+            <section class="contact-hero-section">
+                <div class="container">
+                    <div class="page-hero">
+                        <h1 class="page-title">Contact Us</h1>
+                        <p class="page-subtitle">Get in touch with our gardening experts</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="contact-content-section">
+                <div class="container">
+                    <div class="contact-grid">
+                        <div class="contact-form-container">
+                            <h2 class="form-section-title">Send Us a Message</h2>
+                            <form id="contact-form" class="contact-form" novalidate>
+                                <div class="form-group">
+                                    <label for="contact-name" class="form-label">Name *</label>
+                                    <input type="text" id="contact-name" name="name" class="form-control" required>
+                                    <div class="error-message" role="alert"></div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="contact-email" class="form-label">Email *</label>
+                                    <input type="email" id="contact-email" name="email" class="form-control" required>
+                                    <div class="error-message" role="alert"></div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="contact-phone" class="form-label">Phone</label>
+                                    <input type="tel" id="contact-phone" name="phone" class="form-control">
+                                    <div class="error-message" role="alert"></div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="contact-message" class="form-label">Message *</label>
+                                    <textarea id="contact-message" name="message" class="form-control" rows="5" required></textarea>
+                                    <div class="error-message" role="alert"></div>
+                                </div>
+                                <button type="submit" class="btn btn-primary btn-full-width">
+                                    <span class="button-text">Send Message</span>
+                                    <span class="button-loading hidden">Sending...</span>
+                                </button>
+                            </form>
+                        </div>
+                        
+                        <div class="contact-info-container">
+                            <div class="contact-info-section">
+                                <h3 class="contact-info-title">Visit Our Store</h3>
+                                <div class="contact-info-item">
+                                    <div class="contact-icon">📍</div>
+                                    <div class="contact-details">
+                                        <p>123 Garden Way<br>Green Valley, CA 90210</p>
+                                    </div>
+                                </div>
+                                <div class="contact-info-item">
+                                    <div class="contact-icon">📞</div>
+                                    <div class="contact-details">
+                                        <p><a href="tel:+15551234567">+1 (555) 123-4567</a></p>
+                                    </div>
+                                </div>
+                                <div class="contact-info-item">
+                                    <div class="contact-icon">📧</div>
+                                    <div class="contact-details">
+                                        <p><a href="mailto:hello@greenlifenursery.com">hello@greenlifenursery.com</a></p>
+                                    </div>
+                                </div>
+                                <div class="contact-info-item">
+                                    <div class="contact-icon">🕒</div>
+                                    <div class="contact-details">
+                                        <p>Monday - Saturday: 8:00 AM - 7:00 PM<br>Sunday: 10:00 AM - 5:00 PM</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="map-section">
+                                <h3 class="contact-info-title">Find Us</h3>
+                                <div class="map-container">
+                                    <div class="map-embed">
+                                        <iframe
+                                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3024.1!2d-74.0059!3d40.7128!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDDCsDQyJzQ2LjEiTiA3NMKwMDAnMjEuNCJX!5e0!3m2!1sen!2sus!4v1234567890"
+                                            width="100%"
+                                            height="300"
+                                            style="border:0; border-radius: var(--radius-xl);"
+                                            allowfullscreen=""
+                                            loading="lazy"
+                                            referrerpolicy="no-referrer-when-downgrade"
+                                            title="GreenLife Nursery Location">
+                                        </iframe>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </section>
 
             <!-- Reviews Section -->
@@ -317,7 +417,7 @@
                 <div class="container">
                     <div class="reviews-header">
                         <h2 id="reviews-title" class="section-title">What Our Customers Say</h2>
-                        <button class="btn btn-secondary" id="write-review-btn">Write a Review</button>
+                        <button class="hidden btn btn-secondary" id="write-review-btn">Write a Review</button>
                     </div>
                     <div class="reviews-stats">
                         <div class="average-rating">
@@ -387,7 +487,7 @@
                             <p class="review-text">Great selection of plants and tools. The membership benefits are fantastic too!</p>
                         </article>
                     </div>
-                    <div class="text-center">
+                    <div class="text-center hidden">
                         <button class="btn btn-outline">Load More Reviews</button>
                     </div>
                 </div>

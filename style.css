@@ -1498,7 +1498,7 @@ h4 { font-size: clamp(1.25rem, 2.5vw, 1.5rem); }
   padding: 0 var(--space-16);
 }
 
-@media (min-width: 480px) {
+@media (max-width: 767px) {
   .stats-grid {
     padding: 0 var(--space-20);
   }

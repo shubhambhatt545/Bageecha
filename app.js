@@ -82,6 +82,16 @@ const productData = {
         name: 'Garden Gloves',
         description: 'Durable protection for hands while gardening',
         image: 'garden-gloves.jpg'
+      },
+      {
+        name: 'Hand Trowel Set',
+        description: 'Essential tools for planting and transplanting',
+        image: 'hand-trowel.jpg'
+      },
+      {
+        name: 'Garden Rake',
+        description: 'Perfect for soil preparation and leaf collection',
+        image: 'garden-rake.jpg'
       }
     ]
   },
@@ -186,6 +196,89 @@ const productData = {
   }
 };
 
+// Service data
+const serviceData = {
+  'landscaping-designing': {
+    name: 'Landscaping & Designing',
+    shortDescription: 'Transform outdoor spaces into stunning landscapes',
+    description: 'Transform your outdoor spaces into stunning landscapes with our expert design services. We create custom garden layouts that perfectly blend aesthetics with functionality, ensuring your outdoor space becomes a natural extension of your home.',
+    features: [
+      'Custom landscape design consultation',
+      '3D visualization and planning',
+      'Hardscaping and softscaping solutions',
+      'Water features and lighting design',
+      'Sustainable and eco-friendly designs',
+      'Complete project execution and management'
+    ],
+    process: [
+      'Initial consultation and site assessment',
+      'Concept development and design proposal',
+      '3D visualization and client approval',
+      'Implementation and project execution',
+      'Final walkthrough and maintenance guide'
+    ]
+  },
+  'garden-maintenance': {
+    name: 'Garden Maintenance',
+    shortDescription: 'Keep your garden pristine year-round',
+    description: 'Keep your garden looking pristine throughout the year with our comprehensive maintenance services. Our experienced team ensures your plants remain healthy, vibrant, and well-groomed with regular care and attention.',
+    features: [
+      'Regular pruning and trimming',
+      'Lawn mowing and edging',
+      'Fertilization and soil management',
+      'Pest and disease control',
+      'Seasonal planting and replanting',
+      'Irrigation system maintenance',
+      'Mulching and weed control'
+    ],
+    packages: [
+      { name: 'Basic Care', description: 'Weekly visits for essential maintenance' },
+      { name: 'Premium Care', description: 'Bi-weekly visits with comprehensive services' },
+      { name: 'Custom Care', description: 'Tailored schedule based on your needs' }
+    ]
+  },
+  'rent-a-mali': {
+    name: 'Rent A Mali',
+    shortDescription: 'Expert gardeners on-demand for your needs',
+    description: 'Need expert gardening help on-demand? Our \'Rent A Mali\' service provides skilled gardeners whenever you need them. Whether it\'s for a one-time garden makeover or regular assistance, our trained professionals are ready to help.',
+    features: [
+      'One-time garden cleanup',
+      'Seasonal planting assistance',
+      'Pre-event garden preparation',
+      'Emergency garden care',
+      'Learning gardening techniques',
+      'Supplementing your regular maintenance'
+    ],
+    bookingOptions: [
+      { name: 'Hourly', description: 'Minimum 2 hours booking' },
+      { name: 'Half Day', description: '4 hours of dedicated service' },
+      { name: 'Full Day', description: '8 hours for major projects' }
+    ],
+    note: 'All tools and basic materials included. Our malis are trained, experienced, and background-verified.'
+  },
+  'kitchen-gardening': {
+    name: 'Organic Kitchen Gardening',
+    shortDescription: 'Grow fresh, organic produce at home',
+    description: 'Grow your own fresh, organic vegetables and herbs right at home! We help you create productive kitchen gardens using 100% organic methods, ensuring healthy, chemical-free produce for your family throughout the year.',
+    features: [
+      'Site assessment and planning',
+      'Raised bed or container setup',
+      'Organic soil and compost preparation',
+      'Selection of seasonal vegetables and herbs',
+      'Organic pest management solutions',
+      'Drip irrigation system installation',
+      'Composting setup and training'
+    ],
+    crops: [
+      { category: 'Leafy Greens', items: 'Spinach, Lettuce, Kale, Methi' },
+      { category: 'Herbs', items: 'Basil, Mint, Coriander, Curry Leaves' },
+      { category: 'Vegetables', items: 'Tomatoes, Chilies, Brinjal, Okra' },
+      { category: 'Root Vegetables', items: 'Carrots, Radish, Beetroot, Onions' }
+    ],
+    support: 'We provide continuous guidance through WhatsApp groups, monthly workshops, and seasonal planting calendars to ensure your kitchen garden thrives year-round.'
+  }
+};
+
 // Initialize everything when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
   initRouter();
@@ -230,6 +323,17 @@ function initRouter() {
       return;
     }
     
+    // Check for service cards first (they might also have category-card class)
+    const serviceCard = e.target.closest('.service-card');
+    if (serviceCard) {
+      e.preventDefault();
+      const serviceId = serviceCard.getAttribute('data-service');
+      if (serviceId) {
+        navigateToPage(`/service/${serviceId}`);
+      }
+      return;
+    }
+
     // Check for category cards
     const categoryCard = e.target.closest('.category-card');
     if (categoryCard) {
@@ -279,6 +383,8 @@ function navigateToPage(path, pushState = true) {
     pageToShow = document.getElementById('our-story-page');
   } else if (path === '/our-products') {
     pageToShow = document.getElementById('our-products-page');
+  } else if (path === '/our-services') {
+    pageToShow = document.getElementById('our-services-page');
   } else if (path.startsWith('/category/')) {
     const categoryId = path.split('/')[2];
     if (productData[categoryId]) {
@@ -287,6 +393,15 @@ function navigateToPage(path, pushState = true) {
     } else {
       // Invalid category, go to products page
       pageToShow = document.getElementById('our-products-page');
+    }
+  } else if (path.startsWith('/service/')) {
+    const serviceId = path.split('/')[2];
+    if (serviceData[serviceId]) {
+      showServiceDetailPage(serviceId);
+      pageToShow = document.getElementById('service-detail-page');
+    } else {
+      // Invalid service, go to services page
+      pageToShow = document.getElementById('our-services-page');
     }
   } else if (path === '/contact') {
     pageToShow = document.getElementById('contact-page');
@@ -381,6 +496,144 @@ function createProductCard(product, index) {
   `;
   
   return card;
+}
+
+
+// Service detail page functionality
+function showServiceDetailPage(serviceId) {
+  const service = serviceData[serviceId];
+  if (!service) return;
+
+  // Update page content
+  const titleElement = document.getElementById('service-detail-title');
+  const subtitleElement = document.getElementById('service-detail-subtitle');
+  const contentElement = document.getElementById('service-detail-content');
+  const breadcrumb = document.getElementById('current-service-name');
+
+  if (titleElement) titleElement.textContent = service.name;
+  if (subtitleElement) subtitleElement.textContent = service.description;
+  if (breadcrumb) breadcrumb.textContent = service.name;
+
+  // Build service detail content
+  if (contentElement) {
+    let contentHTML = '<div class="service-detail-grid">';
+
+    // Main description
+    contentHTML += `
+      <div class="service-detail-section">
+        <h2>About This Service</h2>
+        <p class="service-detail-description">${service.description}</p>
+      </div>
+    `;
+
+    // Features section
+    if (service.features && service.features.length > 0) {
+      contentHTML += `
+        <div class="service-detail-section">
+          <h2>What We Offer</h2>
+          <ul class="service-feature-list">
+            ${service.features.map(feature => `<li>${feature}</li>`).join('')}
+          </ul>
+        </div>
+      `;
+    }
+
+    // Process section (for landscaping)
+    if (service.process && service.process.length > 0) {
+      contentHTML += `
+        <div class="service-detail-section">
+          <h2>Our Process</h2>
+          <ol class="service-process-list">
+            ${service.process.map(step => `<li>${step}</li>`).join('')}
+          </ol>
+        </div>
+      `;
+    }
+
+    // Packages section (for maintenance)
+    if (service.packages && service.packages.length > 0) {
+      contentHTML += `
+        <div class="service-detail-section">
+          <h2>Maintenance Packages</h2>
+          <div class="service-packages-grid">
+            ${service.packages.map(pkg => `
+              <div class="service-package-card">
+                <h3>${pkg.name}</h3>
+                <p>${pkg.description}</p>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      `;
+    }
+
+    // Booking options (for rent-a-mali)
+    if (service.bookingOptions && service.bookingOptions.length > 0) {
+      contentHTML += `
+        <div class="service-detail-section">
+          <h2>Booking Options</h2>
+          <div class="service-booking-grid">
+            ${service.bookingOptions.map(option => `
+              <div class="service-booking-card">
+                <h3>${option.name}</h3>
+                <p>${option.description}</p>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      `;
+    }
+
+    // Crops section (for kitchen gardening)
+    if (service.crops && service.crops.length > 0) {
+      contentHTML += `
+        <div class="service-detail-section">
+          <h2>What You Can Grow</h2>
+          <div class="service-crops-grid">
+            ${service.crops.map(crop => `
+              <div class="service-crop-card">
+                <h3>${crop.category}</h3>
+                <p>${crop.items}</p>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      `;
+    }
+
+    // Support section
+    if (service.support) {
+      contentHTML += `
+        <div class="service-detail-section">
+          <h2>Ongoing Support</h2>
+          <p>${service.support}</p>
+        </div>
+      `;
+    }
+
+    // Note section
+    if (service.note) {
+      contentHTML += `
+        <div class="service-detail-section">
+          <div class="service-note">
+            <p>${service.note}</p>
+          </div>
+        </div>
+      `;
+    }
+
+    // CTA section
+    contentHTML += `
+      <div class="service-detail-cta">
+        <h2>Ready to Get Started?</h2>
+        <p>Contact us today to discuss how this service can transform your space</p>
+        <button class="btn btn-primary" data-route="/contact">Get a Quote</button>
+      </div>
+    `;
+
+    contentHTML += '</div>';
+    contentElement.innerHTML = contentHTML;
+  }
 }
 
 // Category cards functionality
@@ -1315,10 +1568,10 @@ function preloadResources() {
 }
 
 // Export functions for potential external use
-window.GreenLifeNursery = {
-  openModal,
-  closeModal,
-  showToast,
-  validateForm,
-  navigateToPage
+window.Bageecha = {
+  openModal: openModal,
+  closeModal: closeModal,
+  showToast: showToast,
+  validateForm: validateForm,
+  navigateToPage: navigateToPage
 };

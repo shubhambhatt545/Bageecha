@@ -994,15 +994,6 @@ function initForms() {
   // const reviewForm = document.getElementById('review-form');
   const contactForm = document.getElementById('contact-form');
   const contactForm2 = document.getElementById('contact-form2');
-  
-  // if (membershipForm) {
-  //   initMembershipForm(membershipForm);
-  // }
-  
-  // if (reviewForm) {
-  //   initReviewForm(reviewForm);
-  // }
-  
   if (contactForm) {
     initContactForm(contactForm);
   }
@@ -1045,10 +1036,12 @@ function initContactForm(form) {
     buttonText.classList.add('hidden');
     buttonLoading.classList.remove('hidden');
     submitButton.disabled = true;
+    const formData = new FormData(form);
     
     try {
       // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 2000));
+      await fetch('/', { method: 'POST', body: new URLSearchParams(formData).toString(),headers:{
+        "Content-Type": "application/x-www-form-urlencoded"} });
       
       // Show success message
       showToast('Thank you for your message! We\'ll get back to you soon.');

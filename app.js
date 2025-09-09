@@ -991,19 +991,23 @@ function loadYouTubeVideo(wrapper, videoId) {
 // Form validation and submission
 function initForms() {
   // const membershipForm = document.getElementById('membership-form');
-  const reviewForm = document.getElementById('review-form');
+  // const reviewForm = document.getElementById('review-form');
   const contactForm = document.getElementById('contact-form');
+  const contactForm2 = document.getElementById('contact-form2');
   
   // if (membershipForm) {
   //   initMembershipForm(membershipForm);
   // }
   
-  if (reviewForm) {
-    initReviewForm(reviewForm);
-  }
+  // if (reviewForm) {
+  //   initReviewForm(reviewForm);
+  // }
   
   if (contactForm) {
     initContactForm(contactForm);
+  }
+  if(contactForm2){
+     initContactForm(contactForm2);
   }
 }
 
@@ -1243,22 +1247,22 @@ function getFieldLabel(fieldName) {
 }
 
 // Review form handling
-function initReviewForm(form) {
-  if (!form) return;
+// function initReviewForm(form) {
+//   if (!form) return;
   
-  const ratingInputs = form.querySelectorAll('input[name="rating"]');
+//   const ratingInputs = form.querySelectorAll('input[name="rating"]');
   
-  ratingInputs.forEach(input => {
-    input.addEventListener('change', () => {
-      updateStarDisplay(input);
-    });
-  });
+//   ratingInputs.forEach(input => {
+//     input.addEventListener('change', () => {
+//       updateStarDisplay(input);
+//     });
+//   });
   
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    submitReview(form);
-  });
-}
+//   form.addEventListener('submit', (e) => {
+//     e.preventDefault();
+//     submitReview(form);
+//   });
+// }
 
 function updateStarDisplay(selectedInput) {
   const ratingContainer = selectedInput.closest('.rating-input');
@@ -1275,34 +1279,34 @@ function updateStarDisplay(selectedInput) {
   });
 }
 
-function submitReview(form) {
-  const formData = new FormData(form);
-  const reviewData = {
-    name: formData.get('name'),
-    rating: formData.get('rating'),
-    comment: formData.get('comment')
-  };
+// function submitReview(form) {
+//   const formData = new FormData(form);
+//   const reviewData = {
+//     name: formData.get('name'),
+//     rating: formData.get('rating'),
+//     comment: formData.get('comment')
+//   };
   
-  // Validate review data
-  if (!reviewData.name || !reviewData.rating || !reviewData.comment) {
-    showToast('Please fill in all required fields.', 'error');
-    return;
-  }
+//   // Validate review data
+//   if (!reviewData.name || !reviewData.rating || !reviewData.comment) {
+//     showToast('Please fill in all required fields.', 'error');
+//     return;
+//   }
   
-  // Here you would typically send the data to your backend
-  console.log('Review submitted:', reviewData);
+//   // Here you would typically send the data to your backend
+//   console.log('Review submitted:', reviewData);
   
-  // Close modal and show success message
-  closeModal();
-  showToast('Thank you for your review! It will be published after moderation.');
+//   // Close modal and show success message
+//   closeModal();
+//   showToast('Thank you for your review! It will be published after moderation.');
   
-  // Reset form
-  form.reset();
-  const starLabels = form.querySelectorAll('.star-label');
-  starLabels.forEach(label => {
-    label.style.color = '#d1d5db';
-  });
-}
+//   // Reset form
+//   form.reset();
+//   const starLabels = form.querySelectorAll('.star-label');
+//   starLabels.forEach(label => {
+//     label.style.color = '#d1d5db';
+//   });
+// }
 
 // Modal functionality
 function initModal() {

@@ -285,8 +285,8 @@ document.addEventListener('DOMContentLoaded', () => {
   initScrollEffects();
   initSocialRail();
   initAnimations();
-  initCounters();
-  initVideoPlayer();
+  // initCounters();
+  // initVideoPlayer();
   initForms();
   initModal();
   initMobileMenu();
@@ -295,7 +295,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initHeroCTA();
   initScrollToTop();
   initCategoryCards();
-  preloadResources();
+  // preloadResources();
 });
 
 // Router functionality

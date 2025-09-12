@@ -1159,7 +1159,7 @@ h4 { font-size: clamp(1.25rem, 2.5vw, 1.5rem); }
   position: absolute;
   inset: 0;
   /* background: linear-gradient(135deg, var(--color-moss) 0%, var(--color-forest) 100%); */
-  background: url('./assets/background-image.png') no-repeat center center;
+  background: url('/assets/background-image.png') no-repeat center center;
   background-size: cover;
   background-position: center;    
   animation: heroZoom var(--duration-slow) var(--ease-organic) forwards;
@@ -1361,7 +1361,7 @@ h4 { font-size: clamp(1.25rem, 2.5vw, 1.5rem); }
 
 .lifestyle-image {
   aspect-ratio: 4/3;
-  background: url('./assets/people-love.png') no-repeat center center / cover;
+  background: url('/assets/people-love.png') no-repeat center center / cover;
   /* background: linear-gradient(135deg, var(--color-blossom) 0%, var(--color-earth) 100%); */
   border-radius: var(--radius-xl);
   box-shadow: var(--shadow-lg);

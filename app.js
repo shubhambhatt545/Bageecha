@@ -216,6 +216,15 @@ const serviceData = {
       '3D visualization and client approval',
       'Implementation and project execution',
       'Final walkthrough and maintenance guide'
+    ],
+    images:[
+      '/assets/Gardern/1.png',
+      '/assets/Gardern/2.png',
+      '/assets/Gardern/3.png',
+      '/assets/Gardern/4.png',
+      '/assets/Gardern/5.png',
+      '/assets/Gardern/6.png',
+      '/assets/Gardern/7.png'
     ]
   },
   'garden-maintenance': {
@@ -601,6 +610,23 @@ function showServiceDetailPage(serviceId) {
       `;
     }
 
+    if(service.images && service.images.length > 0){
+      contentHTML += `
+      <div class="service-detail-section">
+        <div class="scroll-container">
+        ${service.images.map(img => `
+          <div class="cr-card">
+          <img src="${img}" alt="Landscape" class="zoomable">
+          </div>
+          `).join('')}
+        </div>
+      </div>
+      <div id="imageModal">
+      <img id="modalImg" src="" alt="Landscape">
+    </div>
+      `
+    }
+
     // Support section
     if (service.support) {
       contentHTML += `
@@ -633,7 +659,27 @@ function showServiceDetailPage(serviceId) {
 
     contentHTML += '</div>';
     contentElement.innerHTML = contentHTML;
+    const isScrollPresent = document.getElementsByClassName('scroll-container');
+    if(isScrollPresent){
+    document.addEventListener("click", function(e){
+  if(e.target.classList.contains("zoomable")) {
+    const modal = document.getElementById("imageModal");
+    const modalImg = document.getElementById("modalImg");
+    modalImg.src = e.target.src;
+    modal.style.display = "flex";
   }
+});
+const imgModal = document.getElementById('imageModal');
+// Close modal when clicking outside image
+if(imgModal){
+imgModal.addEventListener("click", function(e){
+  if(e.target.id === "imageModal") {
+    this.style.display = "none";
+  }
+});
+  }
+}
+}
 }
 
 // Category cards functionality
@@ -667,6 +713,8 @@ function initScrollToTop() {
     }
   });
 }
+
+
 
 // Timeline animation for Our Story page
 function initTimelineAnimation() {

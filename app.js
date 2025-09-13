@@ -1582,21 +1582,21 @@ function checkScrollAnimations() {
 }
 
 // Handle resize events
-window.addEventListener('resize', debounce(() => {
-  // Recalculate positions if needed
-  if (socialRailDocked) {
-    // Reset social rail position
-    const socialRail = document.getElementById('social-rail');
-    const socialDock = document.getElementById('social-dock');
+// window.addEventListener('resize', debounce(() => {
+//   // Recalculate positions if needed
+//   if (socialRailDocked) {
+//     // Reset social rail position
+//     const socialRail = document.getElementById('social-rail');
+//     const socialDock = document.getElementById('social-dock');
     
-    if (window.innerWidth < 768) {
-      socialRail.classList.remove('docked');
-      socialDock.classList.remove('visible');
-      socialDock.innerHTML = '';
-      socialRailDocked = false;
-    }
-  }
-}, 250));
+//     if (window.innerWidth < 768) {
+//       socialRail.classList.remove('docked');
+//       socialDock.classList.remove('visible');
+//       socialDock.innerHTML = '';
+//       socialRailDocked = false;
+//     }
+//   }
+// }, 250));
 
 // Performance optimization: Preload critical resources
 function preloadResources() {

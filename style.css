@@ -1638,6 +1638,30 @@ h4 { font-size: clamp(1.25rem, 2.5vw, 1.5rem); }
   transition: transform var(--duration-normal) var(--ease-organic);
 }
 
+.product-card[data-service="indoor-plants"] .product-image {
+  background: url("/assets/cards/indoorPlant.png") no-repeat center center;
+  background-size: cover;
+  background-position: center; 
+}
+
+.product-card[data-service="garden-tools"] .product-image{
+  background: url("/assets/cards/gardening_tools.png") no-repeat center center;
+  background-size: cover;
+  background-position: center; 
+}
+
+.product-card[data-service="Seeds-seesdlings"] .product-image {
+  background: url("/assets/cards/seedlings.png") no-repeat center center;
+  background-size: cover;
+  background-position: center; 
+}
+
+.product-card[data-service="pots-planters"] .product-image {
+   background: url("/assets/cards/pots-planters.png") no-repeat center center;
+  background-size: cover;
+  background-position: center;
+}
+
 .product-card:hover .product-image {
   transform: scale(1.05);
 }
@@ -3384,7 +3408,9 @@ h4 { font-size: clamp(1.25rem, 2.5vw, 1.5rem); }
     text-align: center !important;
   }
 
-  
+  .service-process-list li {
+    padding-left: var(--space-3xl);
+  }
   .scroll-to-top {
     bottom: var(--space-lg);
     right: var(--space-lg);

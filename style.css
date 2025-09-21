@@ -1634,33 +1634,9 @@ h4 { font-size: clamp(1.25rem, 2.5vw, 1.5rem); }
 
 .product-image {
   aspect-ratio: 4/3;
-  background: linear-gradient(135deg, var(--color-moss) 0%, var(--color-blossom) 100%);
   transition: transform var(--duration-normal) var(--ease-organic);
 }
 
-.product-card[data-service="indoor-plants"] .product-image {
-  background: url("/assets/cards/indoorPlant.png") no-repeat center center;
-  background-size: cover;
-  background-position: center; 
-}
-
-.product-card[data-service="garden-tools"] .product-image{
-  background: url("/assets/cards/gardening_tools.png") no-repeat center center;
-  background-size: cover;
-  background-position: center; 
-}
-
-.product-card[data-service="Seeds-seesdlings"] .product-image {
-  background: url("/assets/cards/seedlings.png") no-repeat center center;
-  background-size: cover;
-  background-position: center; 
-}
-
-.product-card[data-service="pots-planters"] .product-image {
-   background: url("/assets/cards/pots-planters.png") no-repeat center center;
-  background-size: cover;
-  background-position: center;
-}
 
 .product-card:hover .product-image {
   transform: scale(1.05);
@@ -1730,7 +1706,10 @@ h4 { font-size: clamp(1.25rem, 2.5vw, 1.5rem); }
     grid-template-columns: repeat(4, 1fr);
   }
 }
-
+.category-image {
+  aspect-ratio: 4/3;
+  transition: transform var(--duration-normal) var(--ease-organic);
+}
 .service-card {
   background: var(--color-cream);
   border-radius: var(--radius-xl);
@@ -1748,31 +1727,34 @@ h4 { font-size: clamp(1.25rem, 2.5vw, 1.5rem); }
 
 .service-image {
   aspect-ratio: 4/3;
-  background: linear-gradient(135deg, var(--color-moss) 0%, var(--color-blossom) 100%);
   transition: transform var(--duration-normal) var(--ease-organic);
 }
 
 /* Specific gradients for each service */
-.service-card[data-service="landscaping-designing"] .service-image {
+.service-card[data-service="landscaping-designing"] .service-image , 
+.service-card[data-service="landscaping-designing"] .category-image {
   /* background: linear-gradient(135deg, #5F8D4E 0%, #285430 100%); */
   background: url("/assets/cards/landscaping.png") no-repeat center center;
   background-size: cover;
   background-position: center;   
 }
 
-.service-card[data-service="garden-maintenance"] .service-image {
+.service-card[data-service="garden-maintenance"] .service-image,
+.service-card[data-service="garden-maintenance"] .category-image {
     background: url("/assets/cards/garden-maintain.png") no-repeat center center;
   background-size: cover;
   background-position: center;   
 }
 
-.service-card[data-service="rent-a-mali"] .service-image {
+.service-card[data-service="rent-a-mali"] .service-image,
+.service-card[data-service="rent-a-mali"] .category-image {
       background: url("/assets/cards/rent-mali.png") no-repeat center center;
   background-size: cover;
   background-position: center;
 }
 
-.service-card[data-service="kitchen-gardening"] .service-image {
+.service-card[data-service="kitchen-gardening"] .service-image,
+.service-card[data-service="kitchen-gardening"] .category-image {
         background: url("/assets/cards/kitchen-gardening.png") no-repeat center center;
   background-size: cover;
   background-position: center;
@@ -2220,32 +2202,44 @@ h4 { font-size: clamp(1.25rem, 2.5vw, 1.5rem); }
 }
 
 /* Category and Service Card Images */
-/* .category-card[data-category="indoor-plants"] .category-image,
-.service-card[data-service="landscaping-designing"] .category-image {
-  background: linear-gradient(135deg, #5F8D4E 0%, #285430 100%);
-} */
-
-.category-card[data-category="garden-tools"] .category-image,
-.service-card[data-service="garden-maintenance"] .category-image {
-  background: linear-gradient(135deg, #7FB069 0%, #5F8D4E 100%);
+.product-card[data-category="indoor-plants"] .product-image,
+.product-card[data-category="indoor-plants"] .category-image {
+  background: url("/assets/cards/indoorPlant.png") no-repeat center center;
+  background-size: cover;
+  background-position: center; 
 }
 
-.category-card[data-category="seeds-seedlings"] .category-image,
-.service-card[data-service="rent-a-mali"] .category-image {
-  background: linear-gradient(135deg, #E88D67 0%, #BB6B49 100%);
+.product-card[data-category="garden-tools"] .product-image,
+.product-card[data-category="garden-tools"] .category-image{
+  background: url("/assets/cards/gardening_tools.png") no-repeat center center;
+  background-size: cover;
+  background-position: center; 
 }
 
-.category-card[data-category="pots-planters"] .category-image,
-.service-card[data-service="kitchen-gardening"] .category-image {
-  background: linear-gradient(135deg, #F7C59F 0%, #E88D67 100%);
+.product-card[data-category="seeds-seedlings"] .product-image,
+.product-card[data-category="seeds-seedlings"] .category-image {
+  background: url("/assets/cards/seedlings.png") no-repeat center center;
+  background-size: cover;
+  background-position: center; 
 }
 
-.category-card[data-category="outdoor-plants"] .category-image {
-  background: linear-gradient(135deg, #8FBC8F 0%, #5F8D4E 100%);
+.product-card[data-category="pots-planters"] .product-image,
+ .product-card[data-category="pots-planters"] .category-image{
+   background: url("/assets/cards/pots-planters.png") no-repeat center center;
+  background-size: cover;
+  background-position: center;
 }
 
-.category-card[data-category="fertilizers"] .category-image {
-  background: linear-gradient(135deg, #D4A574 0%, #B08D57 100%);
+.product-card[data-category="outdoor-plants"] .category-image {
+     background: url("/assets/cards/outdoor-plants.png") no-repeat center center;
+  background-size: cover;
+  background-position: center;
+}
+
+.product-card[data-category="fertilizers"] .category-image {
+     background: url("/assets/cards/fertilizers.png") no-repeat center center;
+  background-size: cover;
+  background-position: center;
 }
 
 .package-item,
@@ -2651,11 +2645,7 @@ h4 { font-size: clamp(1.25rem, 2.5vw, 1.5rem); }
   opacity: 1;
 }
 
-.category-image {
-  aspect-ratio: 4/3;
-  background: linear-gradient(135deg, var(--color-moss) 0%, var(--color-blossom) 100%);
-  transition: transform var(--duration-normal) var(--ease-organic);
-}
+
 
 .category-content {
   padding: var(--space-lg);

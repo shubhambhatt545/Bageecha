@@ -1755,21 +1755,27 @@ h4 { font-size: clamp(1.25rem, 2.5vw, 1.5rem); }
 /* Specific gradients for each service */
 .service-card[data-service="landscaping-designing"] .service-image {
   /* background: linear-gradient(135deg, #5F8D4E 0%, #285430 100%); */
-  background: url("/assets/cards/LG.jpg") no-repeat center center;
+  background: url("/assets/cards/landscaping.png") no-repeat center center;
   background-size: cover;
   background-position: center;   
 }
 
 .service-card[data-service="garden-maintenance"] .service-image {
-  background: linear-gradient(135deg, #7FB069 0%, #5F8D4E 100%);
+    background: url("/assets/cards/garden-maintain.png") no-repeat center center;
+  background-size: cover;
+  background-position: center;   
 }
 
 .service-card[data-service="rent-a-mali"] .service-image {
-  background: linear-gradient(135deg, #E88D67 0%, #BB6B49 100%);
+      background: url("/assets/cards/rent-mali.png") no-repeat center center;
+  background-size: cover;
+  background-position: center;
 }
 
 .service-card[data-service="kitchen-gardening"] .service-image {
-  background: linear-gradient(135deg, #F7C59F 0%, #E88D67 100%);
+        background: url("/assets/cards/kitchen-gardening.png") no-repeat center center;
+  background-size: cover;
+  background-position: center;
 }
 
 .service-card:hover .service-image {

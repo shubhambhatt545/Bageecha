@@ -307,142 +307,162 @@ document.addEventListener('DOMContentLoaded', () => {
   // preloadResources();
 });
 
-// Router functionality
-function initRouter() {
-  // Handle initial page load
-  const initialPath = window.location.pathname === '/' ? '/' : window.location.pathname;
-  navigateToPage(initialPath);
-  
-  // Handle all navigation clicks with event delegation
-  document.addEventListener('click', (e) => {
-    // Check for navigation links
-    const link = e.target.closest('a[data-route], button[data-route], .logo-link');
-    
-    if (link) {
-      e.preventDefault();
-      
-      let route;
-      if (link.classList.contains('logo-link')) {
-        route = '/';
-      } else {
-        route = link.getAttribute('data-route') || link.getAttribute('href') || '/';
-      }
-      
-      navigateToPage(route);
-      return;
-    }
-    
-    // Check for service cards first (they might also have category-card class)
-    const serviceCard = e.target.closest('.service-card');
-    if (serviceCard) {
-      e.preventDefault();
-      const serviceId = serviceCard.getAttribute('data-service');
-      if (serviceId) {
-        navigateToPage(`/service/${serviceId}`);
-      }
-      return;
-    }
 
-    // Check for category cards
-    const categoryCard = e.target.closest('.category-card');
-    if (categoryCard) {
-      e.preventDefault();
-      const categoryId = categoryCard.getAttribute('data-category');
-      if (categoryId) {
-        navigateToPage(`/category/${categoryId}`);
+
+// === BEGIN: Hash-routing / fallback fix ===
+const USE_HASH_ROUTING = true; // set false to keep current history.pushState behavior
+
+function initRouter() {
+  // If using hash routing, use location.hash; otherwise use pathname
+  if (USE_HASH_ROUTING) {
+    // Initial load
+    const initial = location.hash ? location.hash.replace(/^#/, '') : '/';
+    navigateToPage(initial, false);
+
+    // Click delegation (nav links, category/service cards)
+    document.addEventListener('click', (e) => {
+      const link = e.target.closest('a[data-route], button[data-route], .logo-link');
+      if (link) {
+        e.preventDefault();
+        let route = link.classList.contains('logo-link') ? '/' : (link.getAttribute('data-route') || link.getAttribute('href') || '/');
+        if (!route.startsWith('/')) route = '/' + route.replace(/^#\/?/, '');
+        // update hash (this triggers hashchange), but navigate immediately too for instant UI update
+        if (route === '/') location.hash = '';
+        else location.hash = route;
+        navigateToPage(route, false);
+        return;
       }
-      return;
-    }
-  });
-  
-  // Handle browser back/forward
-  window.addEventListener('popstate', (e) => {
-    const path = window.location.pathname || '/';
-    navigateToPage(path, false);
-  });
+
+      const serviceCard = e.target.closest('.service-card');
+      if (serviceCard) {
+        e.preventDefault();
+        const serviceId = serviceCard.getAttribute('data-service');
+        if (serviceId) {
+          const route = `/service/${serviceId}`;
+          location.hash = route;
+          navigateToPage(route, false);
+        }
+        return;
+      }
+
+      const categoryCard = e.target.closest('.category-card');
+      if (categoryCard) {
+        e.preventDefault();
+        const categoryId = categoryCard.getAttribute('data-category');
+        if (categoryId) {
+          const route = `/category/${categoryId}`;
+          location.hash = route;
+          navigateToPage(route, false);
+        }
+        return;
+      }
+    });
+
+    // Hash change (back/forward and manual changes)
+    window.addEventListener('hashchange', () => {
+      const path = location.hash ? location.hash.replace(/^#/, '') : '/';
+      navigateToPage(path, false);
+    });
+
+  } else {
+    // Keep your existing pathname-based init (original code) if USE_HASH_ROUTING === false
+    const initialPath = window.location.pathname === '/' ? '/' : window.location.pathname;
+    navigateToPage(initialPath);
+
+    document.addEventListener('click', (e) => {
+      const link = e.target.closest('a[data-route], button[data-route], .logo-link');
+      if (link) {
+        e.preventDefault();
+        let route;
+        if (link.classList.contains('logo-link')) route = '/';
+        else route = link.getAttribute('data-route') || link.getAttribute('href') || '/';
+        navigateToPage(route);
+        return;
+      }
+
+      const serviceCard = e.target.closest('.service-card');
+      if (serviceCard) {
+        e.preventDefault();
+        const serviceId = serviceCard.getAttribute('data-service');
+        if (serviceId) navigateToPage(`/service/${serviceId}`);
+        return;
+      }
+
+      const categoryCard = e.target.closest('.category-card');
+      if (categoryCard) {
+        e.preventDefault();
+        const categoryId = categoryCard.getAttribute('data-category');
+        if (categoryId) navigateToPage(`/category/${categoryId}`);
+        return;
+      }
+    });
+
+    window.addEventListener('popstate', (e) => {
+      const path = window.location.pathname || '/';
+      navigateToPage(path, false);
+    });
+  }
 }
 
 function navigateToPage(path, pushState = true) {
-  // Normalize path
   path = path || '/';
-  
-  // Update browser history
-  if (pushState && path !== currentPage) {
-    window.history.pushState({ path }, '', path);
+
+  if (!USE_HASH_ROUTING) {
+    if (pushState && path !== currentPage) {
+      window.history.pushState({ path }, '', path);
+    }
+  } else {
+    // with hash routing we don't want the server to be queried on refresh
+    // ensure the hash reflects the route (only if caller asked to push state)
+    if (pushState && path !== currentPage) {
+      if (path === '/') location.hash = '';
+      else location.hash = path;
+    }
   }
-  
+
   currentPage = path;
-  
-  // Hide all pages
+
+  // the rest of your existing function can remain unchanged:
   const pages = document.querySelectorAll('.page');
   pages.forEach(page => {
     page.classList.remove('active');
     page.style.display = 'none';
   });
-  
-  // Update navigation active states
+
   updateNavigation(path);
-  
-  // Show appropriate page
+
   let pageToShow;
-  
-  if (path === '/' || path === '') {
-    pageToShow = document.getElementById('home-page');
-  } else if (path === '/our-story') {
-    pageToShow = document.getElementById('our-story-page');
-  } else if (path === '/our-products') {
-    pageToShow = document.getElementById('our-products-page');
-  } else if (path === '/our-services') {
-    pageToShow = document.getElementById('our-services-page');
-  } else if (path.startsWith('/category/')) {
+  if (path === '/' || path === '') pageToShow = document.getElementById('home-page');
+  else if (path === '/our-story') pageToShow = document.getElementById('our-story-page');
+  else if (path === '/our-products') pageToShow = document.getElementById('our-products-page');
+  else if (path === '/our-services') pageToShow = document.getElementById('our-services-page');
+  else if (path.startsWith('/category/')) {
     const categoryId = path.split('/')[2];
     if (productData[categoryId]) {
       showCategoryPage(categoryId);
       pageToShow = document.getElementById('category-page');
-    } else {
-      // Invalid category, go to products page
-      pageToShow = document.getElementById('our-products-page');
-    }
+    } else pageToShow = document.getElementById('our-products-page');
   } else if (path.startsWith('/service/')) {
     const serviceId = path.split('/')[2];
     if (serviceData[serviceId]) {
       showServiceDetailPage(serviceId);
       pageToShow = document.getElementById('service-detail-page');
-    } else {
-      // Invalid service, go to services page
-      pageToShow = document.getElementById('our-services-page');
-    }
-  } else if (path === '/contact') {
-    pageToShow = document.getElementById('contact-page');
-  } else if (path === '/gallery') {
-    // For now, redirect gallery to products
-    pageToShow = document.getElementById('gallery-page');
-    return;
-  } else if (path === '/blog') {
-    // For now, redirect blog to our story
-    pageToShow = document.getElementById('blog-page');
-    return;
-  } else {
-    // Default to home for unknown routes
-    pageToShow = document.getElementById('home-page');
-  }
-  
+    } else pageToShow = document.getElementById('our-services-page');
+  } else if (path === '/contact') pageToShow = document.getElementById('contact-page');
+  else pageToShow = document.getElementById('home-page');
+
   if (pageToShow) {
     pageToShow.style.display = 'block';
     pageToShow.classList.add('active');
-    
-    // Scroll to top on page change
     window.scrollTo({ top: 0, behavior: 'instant' });
-    
-    // Initialize page-specific functionality
     setTimeout(() => {
-      if (path === '/our-story') {
-        initTimelineAnimation();
-      }
+      if (path === '/our-story') initTimelineAnimation();
       reinitializeAnimations();
     }, 100);
   }
 }
+// === END: Hash-routing / fallback fix ===
+
 
 function updateNavigation(path) {
   const navLinks = document.querySelectorAll('.nav-link');

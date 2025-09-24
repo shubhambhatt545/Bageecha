@@ -851,6 +851,13 @@ function initScrollEffects() {
     const scrollY = getScrollY();
     const shouldBeScrolled = scrollY > 50;
     const shouldDockSocial = scrollY > 80;
+
+      console.log('DEBUG scrollY:', scrollY,
+              'shouldBeScrolled:', shouldBeScrolled,
+              'shouldDockSocial:', shouldDockSocial,
+              'socialRailDocked (var):', socialRailDocked,
+              'socialRail has .docked:', socialRail.classList.contains('docked'),
+              'socialDock visible:', socialDock.classList.contains('visible'));
     
     // Handle header scrolled state
     if (shouldBeScrolled !== isScrolled) {

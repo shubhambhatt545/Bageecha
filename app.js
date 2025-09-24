@@ -1,13 +1,24 @@
 // Utility functions
-const debounce = (func, wait) => {
-  let timeout;
-  return function executedFunction(...args) {
-    const later = () => {
-      clearTimeout(timeout);
-      func(...args);
-    };
+// const debounce = (func, wait) => {
+//   let timeout;
+//   return function executedFunction(...args) {
+//     const later = () => {
+//       clearTimeout(timeout);
+//       func(...args);
+//     };
+//     clearTimeout(timeout);
+//     timeout = setTimeout(later, wait);
+//   };
+// };
+const debounce = (func, wait = 10) => {
+  let timeout = null;
+  return function(...args) {
+    const ctx = this;
     clearTimeout(timeout);
-    timeout = setTimeout(later, wait);
+    timeout = setTimeout(() => {
+      timeout = null;
+      func.apply(ctx, args);
+    }, wait);
   };
 };
 
@@ -454,7 +465,8 @@ function navigateToPage(path, pushState = true) {
   if (pageToShow) {
     pageToShow.style.display = 'block';
     pageToShow.classList.add('active');
-    window.scrollTo({ top: 0, behavior: 'instant' });
+    const scrollBehavior = prefersReducedMotion ? 'auto' : 'smooth';
+    window.scrollTo({ top: 0, behavior: scrollBehavior });
     setTimeout(() => {
       if (path === '/our-story') initTimelineAnimation();
       reinitializeAnimations();
@@ -724,7 +736,8 @@ function initScrollToTop() {
   scrollToTopBtn.addEventListener('click', (e) => {
     e.preventDefault();
     if (prefersReducedMotion) {
-      window.scrollTo({ top: 0, behavior: 'instant' });
+       const scrollBehavior = prefersReducedMotion ? 'auto' : 'smooth';
+  window.scrollTo({ top: 0, behavior: scrollBehavior });
     } else {
       window.scrollTo({
         top: 0,
@@ -827,6 +840,10 @@ function initScrollEffects() {
 
   // cross-browser safe scroll getter
   function getScrollY() {
+    if (window.visualViewport && typeof window.visualViewport.pageTop === 'number') {
+      // pageTop is how far the visual viewport is scrolled
+      return Math.max(window.visualViewport.pageTop, window.scrollY || window.pageYOffset || 0);
+    }
     return window.scrollY || window.pageYOffset || document.documentElement.scrollTop || 0;
   }
   
@@ -879,8 +896,13 @@ function initScrollEffects() {
   }, 10);  
   // listeners for desktop + mobile
   window.addEventListener('scroll', handleScroll, { passive: true });
-  window.addEventListener('touchmove', handleScroll, { passive: true }); // extra for iOS/Android
   window.addEventListener('resize', handleScroll, { passive: true });
+  window.addEventListener('touchmove', handleScroll, { passive: true });
+  // visualViewport listeners for mobile browsers (iOS Safari dynamic address bar etc.)
+  if (window.visualViewport) {
+    window.visualViewport.addEventListener('scroll', handleScroll, { passive: true });
+    window.visualViewport.addEventListener('resize', handleScroll, { passive: true });
+  }
   handleScroll(); // Initial check
 }
 
@@ -1466,14 +1488,19 @@ function closeModal() {
 function initMobileMenu() {
   const menuToggle = document.querySelector('.mobile-menu-toggle');
   const navLinks = document.querySelector('.mobile-nav-menu');
-  if (!menuToggle && !navLinks) return;
+  if (!menuToggle || !navLinks) return;
   const lines = menuToggle.querySelectorAll('.hamburger-line');  
   menuToggle.addEventListener('click', (e) => {
     e.stopPropagation();
     navLinks.classList.toggle('open');
     const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
     const willExpand = !isExpanded;
-    menuToggle.setAttribute('aria-expanded', willExpand);
+    if(!willExpand){
+      menuToggle.setAttribute('aria-expanded', 'false');
+    }else{
+      menuToggle.setAttribute('aria-expanded', 'true');
+    }
+      
       // Animate hamburger lines
       if (willExpand) {
         lines[0].style.transform = 'rotate(45deg) translateY(6px)';
@@ -1611,21 +1638,21 @@ function checkScrollAnimations() {
 }
 
 // Handle resize events
-// window.addEventListener('resize', debounce(() => {
-//   // Recalculate positions if needed
-//   if (socialRailDocked) {
-//     // Reset social rail position
-//     const socialRail = document.getElementById('social-rail');
-//     const socialDock = document.getElementById('social-dock');
+window.addEventListener('resize', debounce(() => {
+  // Recalculate positions if needed
+  if (socialRailDocked) {
+    // Reset social rail position
+    const socialRail = document.getElementById('social-rail');
+    const socialDock = document.getElementById('social-dock');
     
-//     if (window.innerWidth < 768) {
-//       socialRail.classList.remove('docked');
-//       socialDock.classList.remove('visible');
-//       socialDock.innerHTML = '';
-//       socialRailDocked = false;
-//     }
-//   }
-// }, 250));
+    if (window.innerWidth < 768) {
+      socialRail.classList.remove('docked');
+      socialDock.classList.remove('visible');
+      socialDock.innerHTML = '';
+      socialRailDocked = false;
+    }
+  }
+}, 250));
 
 // Performance optimization: Preload critical resources
 function preloadResources() {

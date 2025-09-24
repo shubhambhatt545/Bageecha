@@ -877,8 +877,6 @@ function initScrollEffects() {
     socialDock.innerHTML = '';
 
     const socialIcons = socialRail.querySelectorAll('.social-icon');  
-      
-      if (!prefersReducedMotion) {
           
           // Clone and animate social icons
           socialIcons.forEach((icon, index) => {
@@ -893,15 +891,7 @@ function initScrollEffects() {
               });
             }, index * 100);
           });
-        }else {
-      // Reduced-motion fallback: instant clones (no animation) so the dock is still usable
-      socialIcons.forEach((icon) => {
-        const clone = icon.cloneNode(true);
-        clone.style.transition = '';
-        clone.style.transform = '';
-        socialDock.appendChild(clone);
-      });
-    }
+        
       }else {
           // Return social icons to rail
           socialRail.classList.remove('docked');

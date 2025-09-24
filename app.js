@@ -868,15 +868,19 @@ function initScrollEffects() {
     // Handle social rail docking
     if (shouldDockSocial !== socialRailDocked) {
       socialRailDocked = shouldDockSocial;
+
+    if (socialRailDocked) {
+    // Ensure DOM reflects docked state
+    socialRail.classList.add('docked');
+    socialDock.classList.add('visible');
+    // clear any previous clones
+    socialDock.innerHTML = '';
+
+    const socialIcons = socialRail.querySelectorAll('.social-icon');  
       
       if (!prefersReducedMotion) {
-        if (socialRailDocked) {
-          // Move social icons to navbar
-          socialRail.classList.add('docked');
-          socialDock.classList.add('visible');
           
           // Clone and animate social icons
-          const socialIcons = socialRail.querySelectorAll('.social-icon');
           socialIcons.forEach((icon, index) => {
             const clone = icon.cloneNode(true);
             clone.style.transform = 'rotate(360deg) scale(0.8)';
@@ -889,13 +893,21 @@ function initScrollEffects() {
               });
             }, index * 100);
           });
-        } else {
+        }else {
+      // Reduced-motion fallback: instant clones (no animation) so the dock is still usable
+      socialIcons.forEach((icon) => {
+        const clone = icon.cloneNode(true);
+        clone.style.transition = '';
+        clone.style.transform = '';
+        socialDock.appendChild(clone);
+      });
+    }
+      }else {
           // Return social icons to rail
           socialRail.classList.remove('docked');
           socialDock.classList.remove('visible');
           socialDock.innerHTML = '';
         }
-      }
     }
     
     // Trigger scroll animations

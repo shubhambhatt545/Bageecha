@@ -1,26 +1,26 @@
 // Utility functions
-// const debounce = (func, wait) => {
-//   let timeout;
-//   return function executedFunction(...args) {
-//     const later = () => {
-//       clearTimeout(timeout);
-//       func(...args);
-//     };
-//     clearTimeout(timeout);
-//     timeout = setTimeout(later, wait);
-//   };
-// };
-const debounce = (func, wait = 10) => {
-  let timeout = null;
-  return function(...args) {
-    const ctx = this;
+const debounce = (func, wait) => {
+  let timeout;
+  return function executedFunction(...args) {
+    const later = () => {
+      clearTimeout(timeout);
+      func(...args);
+    };
     clearTimeout(timeout);
-    timeout = setTimeout(() => {
-      timeout = null;
-      func.apply(ctx, args);
-    }, wait);
+    timeout = setTimeout(later, wait);
   };
 };
+// const debounce = (func, wait = 10) => {
+//   let timeout = null;
+//   return function(...args) {
+//     const ctx = this;
+//     clearTimeout(timeout);
+//     timeout = setTimeout(() => {
+//       timeout = null;
+//       func.apply(ctx, args);
+//     }, wait);
+//   };
+// };
 
 const easeOutCubic = (t) => 1 - Math.pow(1 - t, 3);
 
@@ -1638,21 +1638,21 @@ function checkScrollAnimations() {
 }
 
 // Handle resize events
-window.addEventListener('resize', debounce(() => {
-  // Recalculate positions if needed
-  if (socialRailDocked) {
-    // Reset social rail position
-    const socialRail = document.getElementById('social-rail');
-    const socialDock = document.getElementById('social-dock');
+// window.addEventListener('resize', debounce(() => {
+//   // Recalculate positions if needed
+//   if (socialRailDocked) {
+//     // Reset social rail position
+//     const socialRail = document.getElementById('social-rail');
+//     const socialDock = document.getElementById('social-dock');
     
-    if (window.innerWidth < 768) {
-      socialRail.classList.remove('docked');
-      socialDock.classList.remove('visible');
-      socialDock.innerHTML = '';
-      socialRailDocked = false;
-    }
-  }
-}, 250));
+//     if (window.innerWidth < 768) {
+//       socialRail.classList.remove('docked');
+//       socialDock.classList.remove('visible');
+//       socialDock.innerHTML = '';
+//       socialRailDocked = false;
+//     }
+//   }
+// }, 250));
 
 // Performance optimization: Preload critical resources
 function preloadResources() {

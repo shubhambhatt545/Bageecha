@@ -1074,7 +1074,7 @@ h4 { font-size: clamp(1.25rem, 2.5vw, 1.5rem); }
   display: none;
   flex-direction: column;
   position: absolute;
-  top: 60px; /* or your header height */
+  top: 80px; /* or your header height */
   left: 0;
   right: 0;
   background: var(--color-cream-dark, #f5f2ed); /* Brand background */

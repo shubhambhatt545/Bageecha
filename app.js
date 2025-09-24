@@ -822,11 +822,18 @@ function initScrollEffects() {
   const header = document.getElementById('header');
   const socialRail = document.getElementById('social-rail');
   const socialDock = document.getElementById('social-dock');
+
+  if (!header || !socialRail || !socialDock) return;
+
+  // cross-browser safe scroll getter
+  function getScrollY() {
+    return window.scrollY || window.pageYOffset || document.documentElement.scrollTop || 0;
+  }
   
   const handleScroll = debounce(() => {
-    const scrollY = window.scrollY;
+    const scrollY = getScrollY();
     const shouldBeScrolled = scrollY > 50;
-    const shouldDockSocial = scrollY > 120;
+    const shouldDockSocial = scrollY > 80;
     
     // Handle header scrolled state
     if (shouldBeScrolled !== isScrolled) {
@@ -869,9 +876,11 @@ function initScrollEffects() {
     
     // Trigger scroll animations
     checkScrollAnimations();
-  }, 10);
-  
-  window.addEventListener('scroll', handleScroll);
+  }, 10);  
+  // listeners for desktop + mobile
+  window.addEventListener('scroll', handleScroll, { passive: true });
+  window.addEventListener('touchmove', handleScroll, { passive: true }); // extra for iOS/Android
+  window.addEventListener('resize', handleScroll, { passive: true });
   handleScroll(); // Initial check
 }
 

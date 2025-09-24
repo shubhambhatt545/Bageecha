@@ -1,26 +1,26 @@
 // Utility functions
-const debounce = (func, wait) => {
-  let timeout;
-  return function executedFunction(...args) {
-    const later = () => {
-      clearTimeout(timeout);
-      func(...args);
-    };
-    clearTimeout(timeout);
-    timeout = setTimeout(later, wait);
-  };
-};
-// const debounce = (func, wait = 10) => {
-//   let timeout = null;
-//   return function(...args) {
-//     const ctx = this;
+// const debounce = (func, wait) => {
+//   let timeout;
+//   return function executedFunction(...args) {
+//     const later = () => {
+//       clearTimeout(timeout);
+//       func(...args);
+//     };
 //     clearTimeout(timeout);
-//     timeout = setTimeout(() => {
-//       timeout = null;
-//       func.apply(ctx, args);
-//     }, wait);
+//     timeout = setTimeout(later, wait);
 //   };
 // };
+const debounce = (func, wait = 10) => {
+  let timeout = null;
+  return function(...args) {
+    const ctx = this;
+    clearTimeout(timeout);
+    timeout = setTimeout(() => {
+      timeout = null;
+      func.apply(ctx, args);
+    }, wait);
+  };
+};
 
 const easeOutCubic = (t) => 1 - Math.pow(1 - t, 3);
 
@@ -850,14 +850,7 @@ function initScrollEffects() {
   const handleScroll = debounce(() => {
     const scrollY = getScrollY();
     const shouldBeScrolled = scrollY > 50;
-    const shouldDockSocial = scrollY > 80;
-
-      console.log('DEBUG scrollY:', scrollY,
-              'shouldBeScrolled:', shouldBeScrolled,
-              'shouldDockSocial:', shouldDockSocial,
-              'socialRailDocked (var):', socialRailDocked,
-              'socialRail has .docked:', socialRail.classList.contains('docked'),
-              'socialDock visible:', socialDock.classList.contains('visible'));
+    const shouldDockSocial = scrollY > 120;
     
     // Handle header scrolled state
     if (shouldBeScrolled !== isScrolled) {

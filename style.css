@@ -1089,6 +1089,7 @@ h4 { font-size: clamp(1.25rem, 2.5vw, 1.5rem); }
 @media (max-width: 767px) {
   .mobile-nav-menu.open {
     display: flex;
+    z-index: 4000;
     animation: slideDown 300ms var(--ease-organic, ease) forwards;
   }
   .nav-links {
@@ -3374,6 +3375,7 @@ h4 { font-size: clamp(1.25rem, 2.5vw, 1.5rem); }
 }
   .social-rail {
     left: var(--space-md);
+    z-index: 10;
   }
   .social-rail.docked {
     transform: translateX(calc(100vw - 200px)) translateY(-30vh);

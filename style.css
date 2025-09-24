@@ -1053,6 +1053,7 @@ h4 { font-size: clamp(1.25rem, 2.5vw, 1.5rem); }
   font-size: 1rem;
 }
 
+
 /* Mobile menu */
 .mobile-menu-toggle {
   display: flex;
@@ -3365,15 +3366,20 @@ h4 { font-size: clamp(1.25rem, 2.5vw, 1.5rem); }
 
   }
   .social-dock {
+    display: none;
      gap: 0.1rem;
   }
+  .social-dock.visible {
+  display: flex;
+}
   .social-rail {
     left: var(--space-md);
   }
-  
-  .social-icon {
-    width: 30px;
-    height: 30px;
+  .social-rail.docked {
+    transform: translateX(calc(100vw - 200px)) translateY(-30vh);
+    flex-direction: row;
+    opacity: 0;
+    pointer-events: none;
   }
   
   .reviews-header {

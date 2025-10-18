@@ -3366,12 +3366,12 @@ h4 { font-size: clamp(1.25rem, 2.5vw, 1.5rem); }
   }
 
  .logo-img{
-    width: 3rem;
+    width: 3.5rem;
     border: 0.25rem;
     border-radius: 50%;
 }
 .logo-text{
-  font-size: 1.15rem;
+  font-size: 1.50rem;
 }
   .social-dock{
     display: none;

@@ -41,32 +41,47 @@ const productData = {
       {
         name: 'Monstera Deliciosa',
         description: 'Large, glossy leaves with natural splits',
-        image: 'monstera.jpg'
+        image: 'assets/Indoor-Plants/monstera-plant.jpg'
       },
       {
         name: 'Snake Plant',
         description: 'Low-maintenance air purifier',
-        image: 'snake-plant.jpg'
+        image: 'assets/Indoor-Plants/snake-plant.jpg'
       },
       {
         name: 'Peace Lily',
         description: 'Elegant white blooms and glossy foliage',
-        image: 'peace-lily.jpg'
+        image: 'assets/Indoor-Plants/peaceLily-plant.jpg'
       },
       {
         name: 'Rubber Plant',
         description: 'Bold burgundy and green leaves',
-        image: 'rubber-plant.jpg'
+        image: 'assets/Indoor-Plants/rubber-plant.jpg'
       },
       {
         name: 'Fiddle Leaf Fig',
         description: 'Statement plant with large violin-shaped leaves',
-        image: 'fiddle-leaf-fig.jpg'
+        image: 'assets/Indoor-Plants/fiddleleaf-plant.jpg'
       },
       {
         name: 'Pothos',
         description: 'Trailing vine perfect for hanging baskets',
-        image: 'pothos.jpg'
+        image: 'assets/Indoor-Plants/golden-pothos.jpg'
+      },
+      {
+        name: 'Areca Palm',
+        description: 'Known for its elegant fronds and air-purifying qualities',
+        image: 'assets/Indoor-Plants/arecapalm-tree.jpg'
+      },
+      {
+        name: 'Spider Plant',
+        description: 'Low-maintenance houseplant known for its long, arching green leaves with white or yellow stripes.',
+        image: 'assets/Indoor-Plants/spider-plant.jpg'
+      },
+      {
+        name: 'Chrysanthemum Plant',
+        description: 'A vibrant flowering plant known for its bright, daisy-like blooms in colors such as yellow, white, pink, and red.',
+        image: 'assets/Indoor-Plants/chrysanthemum-plant.jpg'
       }
     ]
   },
@@ -77,32 +92,32 @@ const productData = {
       {
         name: 'Pruning Shears',
         description: 'Sharp, durable cutting for precise trimming',
-        image: 'pruning-shears.jpg'
+        image: 'assets/Gardening-tools/pruning-shears.jpg'
       },
       {
         name: 'Garden Spade',
         description: 'Heavy-duty digging and planting tool',
-        image: 'garden-spade.jpg'
+        image: 'assets/Gardening-tools/garden-spade.jpg'
       },
       {
         name: 'Watering Can',
-        description: 'Elegant copper watering can for indoor plants',
-        image: 'watering-can.jpg'
+        description: 'Elegant watering can for indoor plants',
+        image: 'assets/Gardening-tools/watering-can.jpg'
       },
       {
         name: 'Garden Gloves',
         description: 'Durable protection for hands while gardening',
-        image: 'garden-gloves.jpg'
+        image: 'assets/Gardening-tools/garden-gloves.jpg'
       },
       {
         name: 'Hand Trowel Set',
         description: 'Essential tools for planting and transplanting',
-        image: 'hand-trowel.jpg'
+        image: 'assets/Gardening-tools/set.jpg'
       },
       {
         name: 'Garden Rake',
         description: 'Perfect for soil preparation and leaf collection',
-        image: 'garden-rake.jpg'
+        image: 'assets/Gardening-tools/garden-rake.jpg'
       }
     ]
   },
@@ -529,7 +544,8 @@ function createProductCard(product, index) {
   card.setAttribute('data-animate', 'fade-up');
   
   card.innerHTML = `
-    <div class="category-product-image" role="img" aria-label="${product.name}"></div>
+    <div class="category-product-image" role="img" aria-label="${product.name}">
+     <img src="${product.image}" aria-label="${product.name}"/> </div>
     <div class="category-product-content">
       <h3 class="category-product-title">${product.name}</h3>
       <p class="category-product-description">${product.description}</p>

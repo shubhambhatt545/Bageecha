@@ -2751,14 +2751,22 @@ h4 { font-size: clamp(1.25rem, 2.5vw, 1.5rem); }
   box-shadow: var(--shadow-lg);
 }
 
-.category-product-card:hover .category-product-image {
+.category-product-card:hover .category-product-image > img {
   transform: scale(1.05);
 }
 
 .category-product-image {
   aspect-ratio: 4/3;
-  background: linear-gradient(135deg, var(--color-moss) 0%, var(--color-earth) 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.category-product-image > img{
+  max-width: 100%;
   transition: transform var(--duration-normal) var(--ease-organic);
+
 }
 
 .category-product-content {

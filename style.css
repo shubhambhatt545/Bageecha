@@ -981,9 +981,9 @@ h4 { font-size: clamp(1.25rem, 2.5vw, 1.5rem); }
 
 }
 .logo-img{
-    width: 4em;
-    border: 1em;
-    border-radius: 3em;
+    width: 4rem;
+    border: 0.25rem;
+    border-radius: 50%;
 }
 
 .logo-link {
@@ -3365,32 +3365,20 @@ h4 { font-size: clamp(1.25rem, 2.5vw, 1.5rem); }
     min-height: 70vh;
   }
 
-  /* .logo-img{
-    width: 60px;
-    height: 60px;
-  } */
-  .social-dock .social-icon {
-    width:30px;
-    height:30px;
-
-  }
-  .social-dock {
+ .logo-img{
+    width: 3rem;
+    border: 0.25rem;
+    border-radius: 50%;
+}
+.logo-text{
+  font-size: 1.15rem;
+}
+  .social-dock{
     display: none;
-     gap: 0.1rem;
   }
   .social-dock.visible {
-  display: flex;
+  display: none;
 }
-  .social-rail {
-    left: var(--space-md);
-    z-index: 10;
-  }
-  .social-rail.docked {
-    transform: translateX(calc(100vw - 200px)) translateY(-30vh);
-    flex-direction: row;
-    opacity: 0;
-    pointer-events: none;
-  }
   
   .reviews-header {
     flex-direction: column;

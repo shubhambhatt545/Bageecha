@@ -10,26 +10,26 @@
 
   <!-- About page -->
   <url>
-    <loc>https://bageecha.co/our-story</loc>
+    <loc>https://bageecha.co/#/our-story</loc>
     <lastmod>2025-09-12</lastmod>
     <priority>0.8</priority>
   </url>
 
   <!-- product page -->
   <url>
-    <loc>https://bageecha.co/our-products</loc>
+    <loc>https://bageecha.co/#/our-products</loc>
     <lastmod>2025-09-12</lastmod>
     <priority>0.8</priority>
   </url>
   <!-- service page -->
   <url>
-    <loc>https://bageecha.co/our-services</loc>
+    <loc>https://bageecha.co/#/our-services</loc>
     <lastmod>2025-09-12</lastmod>
     <priority>0.8</priority>
   </url>
   <!-- contact page -->
   <url>
-    <loc>https://bageecha.co/contact</loc>
+    <loc>https://bageecha.co/#/contact</loc>
     <lastmod>2025-09-12</lastmod>
     <priority>0.8</priority>
   </url>
